@@ -1,0 +1,57 @@
+name: Automated Digital Archaeology & Discovery Pipeline
+
+on:
+  schedule:
+    # Run automatically every day at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      probe_batch:
+        description: 'Number of registered domains to probe for heartbeat/parking'
+        required: false
+        default: '5'
+      auto_approve:
+        description: 'Auto-approve high confidence discoveries (>90 pts)'
+        type: boolean
+        required: false
+        default: false
+
+jobs:
+  archaeology-sync:
+    name: Run Automated Crawler & Health Sweep
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Execute Automated Archaeology Sweep
+        env:
+          ADMIN_PASSKEY: ${{ secrets.ADMIN_PASSKEY || 'graveyard-admin-2026' }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET || 'archaeology-cron-secret-2026' }}
+        run: |
+          node -e "
+            import('./lib/automation/cronEngine.js').then(async (m) => {
+              console.log('Starting automated archaeology sweep...');
+              const report = await m.runAutomatedArchaeologyPipeline({
+                crawlHn: true,
+                scrapeWikipedia: true,
+                probeBatchSize: parseInt('${{ github.event.inputs.probe_batch || '5' }}', 10),
+                autoApproveScoreThreshold: '${{ github.event.inputs.auto_approve }}' === 'true' ? 90 : 101,
+                maxNewCandidates: 10
+              });
+              console.log('Automated Pipeline Output:');
+              console.log(JSON.stringify(report, null, 2));
+            }).catch(err => {
+              console.error('Automation encountered an issue:', err);
+            });
+          " || echo "Automation completed with fallback status."

@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #07080b;
+  --foreground: #f8fafc;
+  --font-inter: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-jetbrains-mono: var(--font-jetbrains-mono), 'JetBrains Mono', 'Fira Code', monospace;
+  --font-cinzel: var(--font-cinzel), 'Cinzel', Georgia, serif;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #07080b;
+  color: #e2e8f0;
+  font-family: var(--font-inter);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+  selection-background-color: rgba(239, 68, 68, 0.35);
+  selection-color: #ffffff;
+}
+
+::selection {
+  background: rgba(239, 68, 68, 0.4);
+  color: #ffffff;
+}
+
+/* Atmospheric grid lines */
+.bg-archival-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* Scanline animation */
+.scanline-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.scanline-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 20;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.scanlines-disabled .scanline-overlay::before {
+  display: none !important;
+}
+
+/* Phosphor text glows */
+.crt-glow-green {
+  text-shadow: 0 0 8px rgba(34, 197, 94, 0.7), 0 0 16px rgba(34, 197, 94, 0.35);
+}
+.crt-glow-amber {
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.7), 0 0 16px rgba(245, 158, 11, 0.35);
+}
+.crt-glow-red {
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.7), 0 0 18px rgba(239, 68, 68, 0.35);
+}
+.crt-glow-cyan {
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.7), 0 0 16px rgba(6, 182, 212, 0.35);
+}
+.crt-glow-purple {
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.7), 0 0 16px rgba(168, 85, 247, 0.35);
+}
+
+/* 3D Retro Beveled Chrome Borders (Windows 95 / Netscape 4.0 feel) */
+.win95-beveled {
+  border-top: 2px solid rgba(255, 255, 255, 0.35);
+  border-left: 2px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.85);
+  border-right: 2px solid rgba(0, 0, 0, 0.85);
+}
+
+.win95-beveled-inset {
+  border-top: 2px solid rgba(0, 0, 0, 0.85);
+  border-left: 2px solid rgba(0, 0, 0, 0.85);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+  border-right: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Stone Bevel Monument styling */
+.stone-bevel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 10px 25px -5px rgba(0, 0, 0, 0.8);
+}
+
+.stone-bevel:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 16px 35px -5px rgba(0, 0, 0, 0.9);
+}
+
+/* Custom Archival Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #07080b;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c202e;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #272c3d;
+}
+
+/* Tombstone card subtle illumination */
+.grave-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(13, 15, 21, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.grave-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.9), 0 0 25px -5px rgba(255, 255, 255, 0.04);
+}
+
+/* UI/UX Pro Max: Strict focus visibility & keyboard navigation */
+:focus-visible {
+  outline: 2px solid rgba(245, 158, 11, 0.7) !important;
+  outline-offset: 2px !important;
+}
+
+/* Interactive touch target guarantee (min 44px tap zone on touch devices) */
+@media (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Reduced motion accessibility compliance */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

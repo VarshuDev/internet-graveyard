@@ -1,0 +1,46 @@
+[
+  {
+    "timestamp": "2026-10-17T14:33:45.980Z",
+    "duration_ms": 17065,
+    "sources_executed": [
+      "Hacker News Algolia Sunsets",
+      "Wikipedia Defunct Web Archive",
+      "Automated Priority Domain Health Monitor"
+    ],
+    "hn_candidates_found": 0,
+    "wiki_candidates_found": 5,
+    "new_candidates_queued": 1,
+    "auto_approved_count": 0,
+    "domains_probed": [
+      {
+        "domain": "hotbot.com",
+        "status": "ACTIVE",
+        "parking_detected": false,
+        "http_status": 200
+      },
+      {
+        "domain": "bereal.com",
+        "status": "OFFLINE",
+        "parking_detected": false,
+        "http_status": null
+      },
+      {
+        "domain": "serebii.net",
+        "status": "ACTIVE",
+        "parking_detected": false,
+        "http_status": 200
+      }
+    ],
+    "logs": [
+      "[2026-10-17T14:33:45.980Z] Initiating Automated Archaeology & Discovery Pipeline...",
+      "[Crawler] Querying Hacker News Algolia for shutdown declarations...",
+      "[Crawler] Retrieved 0 sunset stories from Hacker News.",
+      "[Scraper] Querying Wikipedia API for defunct online services...",
+      "[Scraper] Retrieved 5 articles from Wikipedia.",
+      "[Discovery] Queued candidate from Wikipedia: Ask.com (ask.com)",
+      "[Health Sweep] Probing heartbeat of at-risk and sentinel domains...",
+      "[Summary] Automation run complete in 17065ms. Queued: 1, Auto-approved: 0, Probed domains: 3."
+    ],
+    "summary": "Automation run complete in 17065ms. Queued: 1, Auto-approved: 0, Probed domains: 3."
+  }
+]

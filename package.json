@@ -1,0 +1,50 @@
+{
+  "name": "internet-graveyard",
+  "version": "1.0.0",
+  "description": "Internet Graveyard — Defunct Web Archaeology & Living Digital Cemetery",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VarshuDev/internet-graveyard.git"
+  },
+  "homepage": "https://github.com/VarshuDev/internet-graveyard#readme",
+  "keywords": [
+    "digital-archaeology",
+    "web-history",
+    "internet-graveyard",
+    "dead-web",
+    "wayback-machine",
+    "nextjs",
+    "tailwind",
+    "typescript"
+  ],
+  "author": "Varshan (VarshuDev)",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "scrape": "node scripts/run-scraper.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^2.30.0",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "framer-motion": "^13.2.0",
+    "lucide-react": "^1.40.0",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^26.4.1",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.6.3"
+  }
+}
