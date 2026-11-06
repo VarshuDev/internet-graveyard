@@ -1,4 +1,4 @@
-﻿# 📜 Credits & Attributions
+# <img src="assets/icons/eulogy.svg" width="22" height="22" align="center" /> Credits &amp; Attributions
 
 > *"The internet forgets. We archive what disappeared."*
 
@@ -6,7 +6,7 @@ The **Internet Graveyard** digital archaeology initiative is made possible throu
 
 ---
 
-## 🏛️ Digital Preservation & Historical Archives
+## <img src="assets/icons/tombstone.svg" width="20" height="20" align="center" /> Digital Preservation &amp; Historical Archives
 
 - **[The Internet Archive (Wayback Machine)](https://archive.org/)**  
   Essential archival preservation of defunct URLs, early landing pages, sunset farewell letters, and digital artifacts that would have otherwise vanished forever.
@@ -17,7 +17,7 @@ The **Internet Graveyard** digital archaeology initiative is made possible throu
 
 ---
 
-## 🔊 Audio Relics & Procedural Synthesis
+## <img src="assets/icons/sound.svg" width="20" height="20" align="center" /> Audio Relics &amp; Procedural Synthesis
 
 - **Web Audio API**  
   All sound relics in the **Sounds of the Dead Web Vault** are generated via **100% procedural Web Audio API synthesis** (zero external MP3 dependencies):
@@ -31,7 +31,7 @@ The **Internet Graveyard** digital archaeology initiative is made possible throu
 
 ---
 
-## 💻 Core Software & Frameworks
+## <img src="assets/icons/pipeline-node.svg" width="20" height="20" align="center" /> Core Software &amp; Frameworks
 
 | Library / Tool | Author / Organization | Purpose |
 | :--- | :--- | :--- |
@@ -45,8 +45,8 @@ The **Internet Graveyard** digital archaeology initiative is made possible throu
 
 ---
 
-## 👤 Project Leadership & Curation
+## <img src="assets/icons/crown.svg" width="20" height="20" align="center" /> Project Leadership &amp; Curation
 
-- **Creator & Lead Architect**: **Varshan** ([@VarshuDev](https://github.com/VarshuDev))
+- **Creator &amp; Lead Architect**: **Varshan** ([@VarshuDev](https://github.com/VarshuDev))
 - **Repository**: [https://github.com/VarshuDev/internet-graveyard](https://github.com/VarshuDev/internet-graveyard)
 - **License**: MIT License

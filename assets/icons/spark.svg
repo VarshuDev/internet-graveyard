@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes sparkRotate {
+        0% { transform: rotate(0deg) scale(0.9); filter: drop-shadow(0 0 2px #00f5d4); }
+        50% { transform: rotate(90deg) scale(1.15); filter: drop-shadow(0 0 6px #ff2a5f) drop-shadow(0 0 10px #38bdf8); }
+        100% { transform: rotate(180deg) scale(0.9); filter: drop-shadow(0 0 2px #00f5d4); }
+      }
+      .sparkle { animation: sparkRotate 4s ease-in-out infinite; transform-origin: 12px 12px; fill: url(#sparkGrad); }
+    </style>
+    <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5d4" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#ff2a5f" />
+    </linearGradient>
+  </defs>
+  <!-- 4-Point Star Flare -->
+  <path class="sparkle" d="M12 2c.5 4.5 5.5 9.5 10 10-4.5.5-9.5 5.5-10 10-.5-4.5-5.5-9.5-10-10 4.5-.5 9.5-5.5 10-10z" />
+</svg>

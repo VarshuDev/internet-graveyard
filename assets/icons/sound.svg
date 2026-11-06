@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes waveExpand1 {
+        0%, 100% { opacity: 0.2; transform: scale(0.9); }
+        50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 4px #00f5d4); }
+      }
+      @keyframes waveExpand2 {
+        0%, 100% { opacity: 0.1; transform: scale(0.85); }
+        50% { opacity: 0.9; transform: scale(1.1); filter: drop-shadow(0 0 6px #38bdf8); }
+      }
+      @keyframes speakerBeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.04); }
+      }
+      .speaker-box { animation: speakerBeat 1.8s ease-in-out infinite; transform-origin: 6px 12px; stroke: #38bdf8; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .sound-wave-1 { animation: waveExpand1 1.8s ease-in-out infinite; transform-origin: 15px 12px; stroke: #00f5d4; stroke-width: 1.8; stroke-linecap: round; }
+      .sound-wave-2 { animation: waveExpand2 1.8s ease-in-out infinite 0.3s; transform-origin: 18px 12px; stroke: #a855f7; stroke-width: 1.8; stroke-linecap: round; }
+    </style>
+  </defs>
+  <!-- Speaker Cone -->
+  <polygon class="speaker-box" points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="rgba(56, 189, 248, 0.1)" />
+  <!-- Wave 1 -->
+  <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+  <!-- Wave 2 -->
+  <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+</svg>

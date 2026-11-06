@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes isoBeaconPulse {
+        0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 2px #00f5d4); }
+        50% { opacity: 1; filter: drop-shadow(0 0 8px #00f5d4) drop-shadow(0 0 12px #38bdf8); }
+      }
+      @keyframes cryptGlow {
+        0%, 100% { stroke: #38bdf8; }
+        50% { stroke: #a855f7; }
+      }
+      .beacon-dot { animation: isoBeaconPulse 2s ease-in-out infinite; }
+      .crypt-lines { animation: cryptGlow 3.5s ease-in-out infinite; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <!-- Isometric Ground Diamond / Grid -->
+  <polygon points="12 2 22 8 12 14 2 8" stroke="#334155" stroke-width="1.5" fill="rgba(15, 23, 42, 0.6)" />
+  <!-- Isometric Crypt Monument Structure -->
+  <g class="crypt-lines">
+    <path d="M12 7l6 3.5v5L12 19l-6-3.5v-5z" fill="rgba(0, 245, 212, 0.08)" />
+    <line x1="12" y1="7" x2="12" y2="19" />
+    <line x1="6" y1="10.5" x2="12" y2="14" />
+    <line x1="18" y1="10.5" x2="12" y2="14" />
+  </g>
+  <!-- Apex Glowing Cyber Beacon -->
+  <circle class="beacon-dot" cx="12" cy="7" r="2" fill="#00f5d4" />
+</svg>

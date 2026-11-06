@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes scrollGlow {
+        0%, 100% { filter: drop-shadow(0 0 2px #f59e0b); stroke: #f59e0b; }
+        50% { filter: drop-shadow(0 0 6px #ff2a5f); stroke: #fbbf24; }
+      }
+      @keyframes quillPen {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        50% { transform: translate(1px, -1.5px) rotate(-6deg); }
+      }
+      .scroll-frame { animation: scrollGlow 3s ease-in-out infinite; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .quill-anim { animation: quillPen 2.4s ease-in-out infinite; transform-origin: 17px 7px; stroke: #ff2a5f; stroke-width: 1.8; stroke-linecap: round; }
+    </style>
+  </defs>
+  <!-- Parchment Scroll Body -->
+  <path class="scroll-frame" d="M19 17V5a2 2 0 0 0-2-2H4" />
+  <path class="scroll-frame" d="M8 21h12a2 2 0 0 0 2-2v-2H10a2 2 0 0 0-2 2v2z" fill="rgba(245, 158, 11, 0.1)" />
+  <path d="M4 19a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" />
+  <!-- Script Text Lines -->
+  <line x1="6" y1="9" x2="11" y2="9" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" />
+  <line x1="6" y1="13" x2="13" y2="13" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" />
+  <!-- Red Wax Seal Stamp -->
+  <circle cx="15" cy="18" r="2" fill="#ff2a5f" />
+  <!-- Floating Archival Quill -->
+  <g class="quill-anim">
+    <path d="m15 4 4-2-1 4-3 3-1.5-1.5 1.5-3.5z" fill="rgba(255, 42, 95, 0.2)" />
+  </g>
+</svg>

@@ -1,15 +1,15 @@
-﻿# 🛡️ Security Policy
+# <img src="assets/icons/shield.svg" width="22" height="22" align="center" /> Security Policy
 
 ## Supported Versions
 
-| Version | Supported          |
+| Version | Supported |
 | :--- | :--- |
-| 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+| 1.0.x | Supported |
+| < 1.0 | End of Life |
 
 ---
 
-## 🔐 Administrative Access & Authentication Architecture
+## <img src="assets/icons/terminal.svg" width="20" height="20" align="center" /> Administrative Access &amp; Authentication Architecture
 
 **Internet Graveyard** features an internal **Archaeology Command Center** located at `/admin` for curating records, moderating user submissions, and monitoring live URL health probers.
 
@@ -31,12 +31,12 @@
 
 ---
 
-## 🚨 Reporting a Vulnerability
+## <img src="assets/icons/vital-signs.svg" width="20" height="20" align="center" /> Reporting a Vulnerability
 
 If you discover a security vulnerability within **Internet Graveyard**, please do **not** open a public issue.
 
 Instead, please responsibly disclose it by emailing:
-**gowdavarshan466@gmail.com**
+**307824291+VarshuDev@users.noreply.github.com** or submitting a private advisory via [GitHub Security Advisories](https://github.com/VarshuDev/internet-graveyard/security/advisories).
 
 Please provide:
 - A description of the vulnerability and its potential impact.

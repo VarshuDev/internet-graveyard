@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes promptBlink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      @keyframes termGlow {
+        0%, 100% { stroke: #00f5d4; filter: drop-shadow(0 0 2px #00f5d4); }
+        50% { stroke: #10b981; filter: drop-shadow(0 0 6px #10b981); }
+      }
+      .term-frame { animation: termGlow 3s ease-in-out infinite; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .term-cursor { animation: promptBlink 1.1s steps(1) infinite; fill: #00f5d4; }
+    </style>
+  </defs>
+  <!-- Screen Border -->
+  <rect class="term-frame" x="2" y="4" width="20" height="16" rx="2" fill="rgba(7, 10, 19, 0.8)" />
+  <!-- Terminal Prompt > -->
+  <path d="m6 9 4 3-4 3" stroke="#00f5d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Blinking Block Cursor -->
+  <rect class="term-cursor" x="12" y="13" width="6" height="2" />
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes nodePulse {
+        0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #00f5d4); }
+        50% { transform: scale(1.2); filter: drop-shadow(0 0 8px #a855f7); }
+      }
+      @keyframes lineTrace {
+        0%, 100% { stroke: #38bdf8; opacity: 0.6; }
+        50% { stroke: #00f5d4; opacity: 1; }
+      }
+      .graph-node { animation: nodePulse 2.2s ease-in-out infinite; transform-origin: center; }
+      .graph-edge { animation: lineTrace 3s ease-in-out infinite; stroke-width: 1.8; stroke-linecap: round; }
+    </style>
+  </defs>
+  <!-- Graph Connecting Lines -->
+  <line class="graph-edge" x1="18" y1="6" x2="6" y2="12" />
+  <line class="graph-edge" x1="6" y1="12" x2="18" y2="18" />
+  <!-- Vector Nodes -->
+  <circle class="graph-node" cx="18" cy="6" r="3" fill="#a855f7" stroke="#38bdf8" stroke-width="1.5" />
+  <circle class="graph-node" cx="6" cy="12" r="3" fill="#00f5d4" stroke="#38bdf8" stroke-width="1.5" />
+  <circle class="graph-node" cx="18" cy="18" r="3" fill="#ff2a5f" stroke="#38bdf8" stroke-width="1.5" />
+</svg>

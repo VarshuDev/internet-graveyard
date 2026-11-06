@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes stoneGlow {
+        0%, 100% { filter: drop-shadow(0 0 2px #00f5d4) drop-shadow(0 0 6px rgba(0,245,212,0.3)); stroke: #00f5d4; }
+        50% { filter: drop-shadow(0 0 4px #a855f7) drop-shadow(0 0 10px rgba(168,85,247,0.5)); stroke: #38bdf8; }
+      }
+      @keyframes crossPulse {
+        0%, 100% { opacity: 0.6; transform: scale(0.95); }
+        50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 5px #00f5d4); }
+      }
+      .tomb-outline { animation: stoneGlow 3s ease-in-out infinite; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .cross-glyph { animation: crossPulse 2.5s ease-in-out infinite; transform-origin: 12px 10px; stroke: #00f5d4; stroke-width: 2; stroke-linecap: round; }
+    </style>
+  </defs>
+  <!-- Tombstone Arch Shape -->
+  <path class="tomb-outline" d="M6 21V9a6 6 0 0 1 12 0v12" />
+  <!-- Ground Pedestal -->
+  <path d="M3 21h18" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+  <!-- Memorial Engraved Cross -->
+  <g class="cross-glyph">
+    <line x1="12" y1="7" x2="12" y2="13" />
+    <line x1="9.5" y1="9" x2="14.5" y2="9" />
+  </g>
+  <!-- Base Soil Digital Sparks -->
+  <circle cx="8" cy="18" r="0.75" fill="#38bdf8" opacity="0.8" />
+  <circle cx="16" cy="18" r="0.75" fill="#a855f7" opacity="0.8" />
+</svg>

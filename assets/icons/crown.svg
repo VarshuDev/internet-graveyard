@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes crownShine {
+        0%, 100% { filter: drop-shadow(0 0 2px #f59e0b); stroke: #f59e0b; }
+        50% { filter: drop-shadow(0 0 6px #00f5d4) drop-shadow(0 0 10px #fbbf24); stroke: #00f5d4; }
+      }
+      @keyframes gemTwinkle {
+        0%, 100% { transform: scale(0.9); opacity: 0.7; }
+        50% { transform: scale(1.2); opacity: 1; }
+      }
+      .crown-frame { animation: crownShine 3s ease-in-out infinite; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; fill: rgba(245, 158, 11, 0.08); }
+      .gem { animation: gemTwinkle 2s ease-in-out infinite; transform-origin: center; fill: #00f5d4; }
+    </style>
+  </defs>
+  <!-- Crown Outline -->
+  <path class="crown-frame" d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
+  <!-- Apex Jewels -->
+  <circle class="gem" cx="2" cy="4" r="1.5" />
+  <circle class="gem" cx="12" cy="4" r="1.5" />
+  <circle class="gem" cx="22" cy="4" r="1.5" />
+</svg>

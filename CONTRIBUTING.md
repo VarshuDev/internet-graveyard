@@ -1,10 +1,10 @@
-﻿# 🤝 Contributing to Internet Graveyard
+# <img src="assets/icons/spark.svg" width="22" height="22" align="center" /> Contributing to Internet Graveyard
 
 Thank you for your interest in contributing to **Internet Graveyard**! We are a community-driven digital archaeology project committed to documenting, researching, and preserving deceased internet platforms, products, and communities.
 
 ---
 
-## 🏛️ Archaeological Inclusion Criteria
+## <img src="assets/icons/tombstone.svg" width="20" height="20" align="center" /> Archaeological Inclusion Criteria
 
 Before submitting a new defunct entity or proposing an obituary update, ensure the candidate meets our archival standards:
 
@@ -15,7 +15,7 @@ Before submitting a new defunct entity or proposing an obituary update, ensure t
 
 ---
 
-## 🛠️ Local Development Setup
+## <img src="assets/icons/terminal.svg" width="20" height="20" align="center" /> Local Development Setup
 
 ### 1. Prerequisites
 - **Node.js**: v18.17.0 or newer (v20+ recommended)
@@ -35,7 +35,7 @@ npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 3. Production Build & Validation
+### 3. Production Build &amp; Validation
 Before submitting any changes, verify that the production build succeeds without errors:
 ```bash
 npm run build
@@ -44,34 +44,32 @@ npm run start
 
 ---
 
-## 📂 Archival Data Structure
+## <img src="assets/icons/database.svg" width="20" height="20" align="center" /> Archival Data Structure
 
-Buried entities reside in [`data/graveyard.ts`](./data/graveyard.ts). Each record conforms to the `GraveyardItem` type defined in [`types/graveyard.ts`](./types/graveyard.ts):
+Buried entities reside in `data/graveyard.json`. Each record conforms to the entity schema defined in `types/graveyard.ts`:
 
 ```typescript
 {
-  id: "platform-slug",
-  name: "Platform Name",
+  id: "grave-vine-001",
+  slug: "vine",
+  name: "Vine",
   category: "Social" | "Messaging" | "Streaming" | "Gaming" | "Web technology" | "Productivity",
-  birthYear: 2012,
-  deathYear: 2017,
+  status: "CONFIRMED_DEAD" | "ACTIVE" | "ZOMBIE" | "AT_RISK",
+  founded_year: 2012,
+  death_year: 2017,
   tagline: "Short memorable description",
   description: "Detailed historical autopsy and memorial biography",
-  peakUsers: "200M active monthly users",
-  causeOfDeath: "Corporate shutdown by parent company",
-  parentCompany: "Acquiring Parent Corp",
-  farewellMessage: "Final farewell quote or farewell announcement link",
-  waybackUrl: "https://web.archive.org/web/...",
-  lessons: [
-    "Lesson 1 for founders and engineers",
-    "Lesson 2 regarding business model sustainability"
-  ]
+  peak_users: "200M active monthly users",
+  cause_of_death_summary: "Corporate shutdown by parent company",
+  parent_company: "Twitter, Inc.",
+  timeline: [...],
+  evidence: [...]
 }
 ```
 
 ---
 
-## 🛡️ Administrative Terminal & Moderation
+## <img src="assets/icons/shield.svg" width="20" height="20" align="center" /> Administrative Terminal &amp; Moderation
 
 The platform includes an internal **Archaeology Command Center (`/admin`)** for reviewing auto-discovered scanner candidate URLs and community submissions.
 
@@ -81,12 +79,12 @@ The platform includes an internal **Archaeology Command Center (`/admin`)** for 
 
 ---
 
-## 📬 Submitting Changes
+## <img src="assets/icons/pipeline-node.svg" width="20" height="20" align="center" /> Submitting Changes
 
-1. Fork the repository on GitHub.
-2. Create a feature or excavation branch: `git checkout -b feature/archive-vine-sound`.
+1. Fork the repository on GitHub: `https://github.com/VarshuDev/internet-graveyard`.
+2. Create an excavation branch: `git checkout -b feature/archive-vine-sound`.
 3. Commit your changes with clear, descriptive messages.
 4. Push to your fork: `git push origin feature/archive-vine-sound`.
 5. Open a Pull Request detailing the changes, evidence links, and tests performed.
 
-Thank you for helping us preserve the memory of the dead web!
+*Thank you for helping us preserve the memory of the dead web!*

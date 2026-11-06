@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes scaleTilt {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-5deg); }
+        75% { transform: rotate(5deg); }
+      }
+      @keyframes bowlLeftGlow {
+        0%, 100% { filter: drop-shadow(0 0 3px #00f5d4); stroke: #00f5d4; }
+        50% { filter: drop-shadow(0 0 6px #ff2a5f); stroke: #ff2a5f; }
+      }
+      .beam-pivot { animation: scaleTilt 4s ease-in-out infinite; transform-origin: 12px 6px; }
+      .bowl-left { animation: bowlLeftGlow 3s ease-in-out infinite; }
+    </style>
+  </defs>
+  <!-- Base Stand -->
+  <line x1="12" y1="3" x2="12" y2="21" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+  <path d="M8 21h8" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+  <!-- Pivoting Crossbeam -->
+  <g class="beam-pivot">
+    <line x1="4" y1="7" x2="20" y2="7" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" />
+    <!-- Left Dish Assembly -->
+    <path class="bowl-left" d="m4 7-2 6h8l-2-6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="rgba(0, 245, 212, 0.1)" />
+    <!-- Right Dish Assembly -->
+    <path d="m20 7-2 6h8l-2-6" stroke="#a855f7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="rgba(168, 85, 247, 0.1)" />
+  </g>
+  <circle cx="12" cy="6" r="2" fill="#00f5d4" />
+</svg>

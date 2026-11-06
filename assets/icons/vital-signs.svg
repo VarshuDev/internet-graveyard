@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes pulsePulseLine {
+        0% { stroke-dashoffset: 40; filter: drop-shadow(0 0 2px #ff2a5f); }
+        50% { stroke-dashoffset: 0; filter: drop-shadow(0 0 6px #ff2a5f) drop-shadow(0 0 10px #ff2a5f); }
+        100% { stroke-dashoffset: -40; filter: drop-shadow(0 0 2px #ff2a5f); }
+      }
+      @keyframes monitorBlink {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+      .heart-wave {
+        stroke: #ff2a5f;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 40;
+        animation: pulsePulseLine 2.2s linear infinite;
+      }
+      .monitor-box { stroke: #38bdf8; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .grid-dot { fill: #00f5d4; animation: monitorBlink 1.5s ease-in-out infinite; }
+    </style>
+  </defs>
+  <!-- CRT Monitor Frame -->
+  <rect class="monitor-box" x="2" y="3" width="20" height="15" rx="3" fill="rgba(8, 9, 13, 0.7)" />
+  <path d="M8 21h8M12 18v3" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" />
+  <!-- Heartbeat EKG Oscilloscope Line -->
+  <path class="heart-wave" d="M4 11h3l2-5 3 10 2-7 1.5 3.5 1.5-1.5H20" />
+  <!-- Live Signal Status LED -->
+  <circle class="grid-dot" cx="19" cy="6" r="1.2" />
+</svg>

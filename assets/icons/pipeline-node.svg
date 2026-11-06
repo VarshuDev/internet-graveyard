@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes pipePulse {
+        0%, 100% { stroke: #00f5d4; filter: drop-shadow(0 0 2px #00f5d4); }
+        50% { stroke: #38bdf8; filter: drop-shadow(0 0 6px #38bdf8); }
+      }
+      @keyframes orbitData {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .pipe-ring { animation: pipePulse 2.5s ease-in-out infinite; stroke-width: 1.8; }
+      .orbit-packet { animation: orbitData 3s linear infinite; transform-origin: 12px 12px; }
+    </style>
+  </defs>
+  <rect class="pipe-ring" x="3" y="3" width="6" height="6" rx="1.5" fill="rgba(0, 245, 212, 0.1)" />
+  <rect class="pipe-ring" x="15" y="3" width="6" height="6" rx="1.5" fill="rgba(56, 189, 248, 0.1)" />
+  <rect class="pipe-ring" x="9" y="15" width="6" height="6" rx="1.5" fill="rgba(168, 85, 247, 0.1)" />
+  <!-- Bus Conduits -->
+  <path d="M6 9v3a3 3 0 0 0 3 3h3m6-6v3a3 3 0 0 1-3 3h-3" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" />
+  <g class="orbit-packet">
+    <circle cx="12" cy="7" r="1.5" fill="#ff2a5f" />
+  </g>
+</svg>

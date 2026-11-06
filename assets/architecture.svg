@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="100%" height="520" fill="none">
+  <defs>
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05070d"/>
+      <stop offset="100%" stop-color="#0a0f1d"/>
+    </linearGradient>
+
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5d4"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+
+    <filter id="boxGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      @keyframes flowPacket {
+        0% { stroke-dashoffset: 60; }
+        100% { stroke-dashoffset: 0; }
+      }
+      .data-bus {
+        stroke-dasharray: 6 4;
+        animation: flowPacket 2s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="520" rx="12" fill="url(#archBg)" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <text x="500" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="20" fill="#00f5d4" text-anchor="middle" letter-spacing="2">
+    INTERNET GRAVEYARD // ARCHITECTURAL PIPELINE
+  </text>
+  <text x="500" y="58" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b" text-anchor="middle">
+    4-TIER RECURSIVE ARCHAEOLOGICAL HARVESTING, INTELLIGENCE &amp; SPATIAL PRESENTATION
+  </text>
+
+  <!-- Tier 1: Intake & Crawlers (Left Column) -->
+  <g transform="translate(40, 80)">
+    <rect width="200" height="400" rx="8" fill="#0a0d18" stroke="#00f5d4" stroke-width="1.2" stroke-opacity="0.8"/>
+    <rect x="0" y="0" width="200" height="34" rx="8" fill="rgba(0, 245, 212, 0.12)"/>
+    <text x="100" y="22" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#00f5d4" text-anchor="middle">TIER 1: INTAKE &amp; PROBES</text>
+
+    <!-- Sub-boxes -->
+    <g transform="translate(14, 50)" font-family="'JetBrains Mono', monospace" font-size="10">
+      <!-- Box 1 -->
+      <rect width="172" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+      <text x="12" y="22" font-weight="700" fill="#f8fafc">1,027+ Relic Dossiers</text>
+      <text x="12" y="38" fill="#94a3b8">547 Dead &bull; 434 Active</text>
+      <text x="12" y="54" fill="#64748b">36 Zombies &bull; 10 At-Risk</text>
+
+      <!-- Box 2 -->
+      <g transform="translate(0, 85)">
+        <rect width="172" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#f8fafc">Autonomous Inquests</text>
+        <text x="12" y="38" fill="#94a3b8">Daily cron daemon</text>
+        <text x="12" y="54" fill="#64748b">DNS, TLS &amp; HTTP probes</text>
+      </g>
+
+      <!-- Box 3 -->
+      <g transform="translate(0, 170)">
+        <rect width="172" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#f8fafc">Wayback Coordinates</text>
+        <text x="12" y="38" fill="#94a3b8">CDX Index timestamps</text>
+        <text x="12" y="54" fill="#64748b">Genesis &bull; Apex &bull; Sunset</text>
+      </g>
+
+      <!-- Box 4 -->
+      <g transform="translate(0, 255)">
+        <rect width="172" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#f8fafc">Community Submissions</text>
+        <text x="12" y="38" fill="#94a3b8">Curator review queue</text>
+        <text x="12" y="54" fill="#64748b">Evidence verification</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Connectors Tier 1 -> Tier 2 -->
+  <line x1="240" y1="280" x2="280" y2="280" stroke="#00f5d4" stroke-width="2" class="data-bus"/>
+
+  <!-- Tier 2: Core Intelligence Engine (Center-Left Column) -->
+  <g transform="translate(280, 80)">
+    <rect width="210" height="400" rx="8" fill="#0a0d18" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.8"/>
+    <rect x="0" y="0" width="210" height="34" rx="8" fill="rgba(56, 189, 248, 0.12)"/>
+    <text x="105" y="22" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">TIER 2: ENGINE &amp; AI</text>
+
+    <g transform="translate(14, 50)" font-family="'JetBrains Mono', monospace" font-size="10">
+      <!-- Box 1 -->
+      <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+      <text x="12" y="22" font-weight="700" fill="#38bdf8">Next.js 14 App Router</text>
+      <text x="12" y="38" fill="#94a3b8">Edge Route Handlers</text>
+      <text x="12" y="54" fill="#64748b">SSR + ISR In-Memory DB</text>
+
+      <!-- Box 2 -->
+      <g transform="translate(0, 85)">
+        <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#a855f7">Gemini 3.8 Flash SDK</text>
+        <text x="12" y="38" fill="#94a3b8">"Ghost in the Machine"</text>
+        <text x="12" y="54" fill="#64748b">AI Funeral Eulogies</text>
+      </g>
+
+      <!-- Box 3 -->
+      <g transform="translate(0, 170)">
+        <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#10b981">Web Audio Synthesis</text>
+        <text x="12" y="38" fill="#94a3b8">Procedural oscillators</text>
+        <text x="12" y="54" fill="#64748b">AOL &bull; ICQ &bull; MSN &bull; 528Hz</text>
+      </g>
+
+      <!-- Box 4 -->
+      <g transform="translate(0, 255)">
+        <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#f59e0b">Fuzzy Search &amp; Index</text>
+        <text x="12" y="38" fill="#94a3b8">Global Cmd+K palette</text>
+        <text x="12" y="54" fill="#64748b">Weight-scored match</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Connectors Tier 2 -> Tier 3 -->
+  <line x1="490" y1="280" x2="530" y2="280" stroke="#38bdf8" stroke-width="2" class="data-bus"/>
+
+  <!-- Tier 3: Interactive Laboratories (Center-Right Column) -->
+  <g transform="translate(530, 80)">
+    <rect width="210" height="400" rx="8" fill="#0a0d18" stroke="#a855f7" stroke-width="1.2" stroke-opacity="0.8"/>
+    <rect x="0" y="0" width="210" height="34" rx="8" fill="rgba(168, 85, 247, 0.12)"/>
+    <text x="105" y="22" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#a855f7" text-anchor="middle">TIER 3: INTERACTIVE LABS</text>
+
+    <g transform="translate(14, 50)" font-family="'JetBrains Mono', monospace" font-size="10">
+      <!-- Box 1 -->
+      <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+      <text x="12" y="22" font-weight="700" fill="#00f5d4">Web Time Warp 1990—26</text>
+      <text x="12" y="38" fill="#94a3b8">36-year scrub slider</text>
+      <text x="12" y="54" fill="#64748b">Dynamic census meters</text>
+
+      <!-- Box 2 -->
+      <g transform="translate(0, 85)">
+        <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#a855f7">3D Cemetery Grounds</text>
+        <text x="12" y="38" fill="#94a3b8">Isometric Canvas map</text>
+        <text x="12" y="54" fill="#64748b">Themed mausoleum plots</text>
+      </g>
+
+      <!-- Box 3 -->
+      <g transform="translate(0, 170)">
+        <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#38bdf8">Vintage Browser Frame</text>
+        <text x="12" y="38" fill="#94a3b8">Netscape 4 / IE 6 UI</text>
+        <text x="12" y="54" fill="#64748b">Simulated 56k dial-up</text>
+      </g>
+
+      <!-- Box 4 -->
+      <g transform="translate(0, 255)">
+        <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="12" y="22" font-weight="700" fill="#ff2a5f">Autopsy &amp; Guestbook</text>
+        <text x="12" y="38" fill="#94a3b8">Head-to-head showdowns</text>
+        <text x="12" y="54" fill="#64748b">Virtual offering altars</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Connectors Tier 3 -> Tier 4 -->
+  <line x1="740" y1="280" x2="780" y2="280" stroke="#a855f7" stroke-width="2" class="data-bus"/>
+
+  <!-- Tier 4: Open Data & Edge Distribution (Right Column) -->
+  <g transform="translate(780, 80)">
+    <rect width="180" height="400" rx="8" fill="#0a0d18" stroke="#ff2a5f" stroke-width="1.2" stroke-opacity="0.8"/>
+    <rect x="0" y="0" width="180" height="34" rx="8" fill="rgba(255, 42, 95, 0.12)"/>
+    <text x="90" y="22" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#ff2a5f" text-anchor="middle">TIER 4: OPEN DATA &amp; EDGES</text>
+
+    <g transform="translate(14, 50)" font-family="'JetBrains Mono', monospace" font-size="10">
+      <!-- Box 1 -->
+      <rect width="152" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+      <text x="10" y="22" font-weight="700" fill="#f8fafc">RFC-4180 CSV Export</text>
+      <text x="10" y="38" fill="#94a3b8">Streaming format</text>
+      <text x="10" y="54" fill="#64748b">Pandas &amp; Excel ready</text>
+
+      <!-- Box 2 -->
+      <g transform="translate(0, 85)">
+        <rect width="152" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="10" y="22" font-weight="700" fill="#f8fafc">Dynamic Vector OG</text>
+        <text x="10" y="38" fill="#94a3b8">1,027+ tombstones</text>
+        <text x="10" y="54" fill="#64748b">Edge SVG generation</text>
+      </g>
+
+      <!-- Box 3 -->
+      <g transform="translate(0, 170)">
+        <rect width="152" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="10" y="22" font-weight="700" fill="#f8fafc">SHA-256 Checksum</text>
+        <text x="10" y="38" fill="#94a3b8">Cryptographic seal</text>
+        <text x="10" y="54" fill="#64748b">BibTeX paper citations</text>
+      </g>
+
+      <!-- Box 4 -->
+      <g transform="translate(0, 255)">
+        <rect width="152" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
+        <text x="10" y="22" font-weight="700" fill="#f8fafc">Curator Terminal</text>
+        <text x="10" y="38" fill="#94a3b8">Passkey auth barrier</text>
+        <text x="10" y="54" fill="#64748b">HTTP-only 24h cookies</text>
+      </g>
+    </g>
+  </g>
+</svg>

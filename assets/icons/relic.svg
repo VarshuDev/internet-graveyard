@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes relicScan {
+        0%, 100% { stroke: #38bdf8; filter: drop-shadow(0 0 2px #38bdf8); }
+        50% { stroke: #a855f7; filter: drop-shadow(0 0 6px #00f5d4); }
+      }
+      @keyframes laserLine {
+        0% { transform: translateY(0); opacity: 0.3; }
+        50% { transform: translateY(7px); opacity: 1; filter: drop-shadow(0 0 4px #00f5d4); }
+        100% { transform: translateY(0); opacity: 0.3; }
+      }
+      .relic-head { animation: relicScan 3.5s ease-in-out infinite; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; fill: rgba(168, 85, 247, 0.08); }
+      .laser-sweep { animation: laserLine 2.2s ease-in-out infinite; stroke: #00f5d4; stroke-width: 1.5; stroke-linecap: round; }
+    </style>
+  </defs>
+  <!-- Forensic Skull Dome -->
+  <path class="relic-head" d="M12 2a7 7 0 0 0-7 7c0 3.2 2 5.5 3 7.5v3.5h8V16.5c1-2 3-4.3 3-7.5a7 7 0 0 0-7-7z" />
+  <!-- Eye Sockets -->
+  <circle cx="9" cy="9.5" r="1.5" fill="#00f5d4" />
+  <circle cx="15" cy="9.5" r="1.5" fill="#00f5d4" />
+  <!-- Forensic Laser Scan Beam -->
+  <line class="laser-sweep" x1="6" y1="8" x2="18" y2="8" />
+  <!-- Teeth / Grille Circuit Lines -->
+  <line x1="10" y1="18" x2="10" y2="20" stroke="#64748b" stroke-width="1.5" />
+  <line x1="14" y1="18" x2="14" y2="20" stroke="#64748b" stroke-width="1.5" />
+</svg>

@@ -1,251 +1,291 @@
 <div align="center">
 
-# † INTERNET GRAVEYARD
-### *The Definitive Living Cyber-Cemetery & Web Archaeology Registry*
+<!-- Hero Banner -->
+<img src="assets/banner.svg" width="100%" alt="Internet Graveyard Banner" />
 
-> **"The internet forgets. We archive what disappeared."**
+<br/><br/>
 
-[![Next.js 14](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React 18](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Google Gen AI](https://img.shields.io/badge/Gemini_AI-3.8_Flash-8E75C2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
-[![Web Audio API](https://img.shields.io/badge/Audio-Procedural_Synthesis-red?style=for-the-badge&logo=webrtc&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
-[![Dataset](https://img.shields.io/badge/Relics-1%2C027%2B_Preserved-emerald?style=for-the-badge&logo=database&logoColor=white)](/explore)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+<!-- Animated Typing SVG -->
+<a href="https://github.com/VarshuDev/internet-graveyard">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=19&pause=1000&color=00F5D4&center=true&vCenter=true&width=750&height=44&lines=Defunct+Web+Archaeology+%E2%80%A2+Living+Digital+Cemetery;1%2C027%2B+Preserved+Relics+%E2%80%A2+Gemini+3.8+Flash+AI;100%25+Procedural+Web+Audio+%E2%80%A2+3D+Isometric+Grounds;0%25+Yap+%E2%80%A2+100%25+Preserve" alt="Typing Header" />
+</a>
 
-[**Explore 1,027 Graves**](https://internet-graveyard-seven.vercel.app/explore) • [**Time Warp Scrubber**](https://internet-graveyard-seven.vercel.app/time-warp) • [**Vital Signs Lab**](https://internet-graveyard-seven.vercel.app/lookup) • [**Audio Vault**](https://internet-graveyard-seven.vercel.app/sounds) • [**Autopsy Rivals**](https://internet-graveyard-seven.vercel.app/compare) • [**Sunset Gazette**](https://internet-graveyard-seven.vercel.app/gazette) • [**Cemetery Map**](https://internet-graveyard-seven.vercel.app/grounds) • [**Open Data Hub**](https://internet-graveyard-seven.vercel.app/export)
+<br/>
 
----
+<!-- High-Contrast Status Badges -->
+<p align="center">
+  <a href="https://nextjs.org">
+    <img src="https://img.shields.io/badge/Framework-Next.js_14.2-38bdf8?style=for-the-badge&logo=next.js&logoColor=white&labelColor=08090d" alt="Next.js 14" />
+  </a>
+  <a href="https://www.typescriptlang.org">
+    <img src="https://img.shields.io/badge/Language-TypeScript_5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white&labelColor=08090d" alt="TypeScript" />
+  </a>
+  <a href="https://ai.google.dev">
+    <img src="https://img.shields.io/badge/AI_Engine-Gemini_3.8_Flash-a855f7?style=for-the-badge&logo=google&logoColor=white&labelColor=08090d" alt="Gemini AI" />
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">
+    <img src="https://img.shields.io/badge/Sound-Web_Audio_Synthesis-ff2a5f?style=for-the-badge&logo=webrtc&logoColor=white&labelColor=08090d" alt="Web Audio API" />
+  </a>
+  <a href="https://tailwindcss.com">
+    <img src="https://img.shields.io/badge/Styles-Tailwind_3.4-00f5d4?style=for-the-badge&logo=tailwind-css&logoColor=white&labelColor=08090d" alt="Tailwind CSS" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-10b981?style=for-the-badge&labelColor=08090d" alt="License MIT" />
+  </a>
+</p>
+
+<!-- Cyber Terminal Telemetry Box -->
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│  > REPOSITORY     : VarshuDev // INTERNET-GRAVEYARD                    │
+│  > CORPUS SIZE    : 1,027+ AUTHENTIC PRESERVED DIGITAL RELICS          │
+│  > STATUS METRICS : 547 DEAD • 434 LIVING • 36 ZOMBIES • 10 AT-RISK    │
+│  > INTELLIGENCE   : GOOGLE GEMINI 3.8 FLASH "GHOST IN THE MACHINE"     │
+│  > ACOUSTIC SUITE : ZERO-MP3 PROCEDURAL WEB AUDIO SYNTHESIZER          │
+│  > TIME HORIZON   : 1990 — 2026 CONTINUOUS WEB TIME WARP SCRUBBER     │
+│  > PRIME MANDATE  : "THE INTERNET FORGETS. WE ARCHIVE WHAT DIED."      │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+<p align="center">
+  <a href="#flagship-laboratories--features"><img src="assets/icons/spark.svg" width="16" height="16" align="center" /> Flagship Labs</a> &nbsp;&bull;&nbsp;
+  <a href="#architectural-pipeline"><img src="assets/icons/pipeline-node.svg" width="16" height="16" align="center" /> Architecture</a> &nbsp;&bull;&nbsp;
+  <a href="#forensic-corpus--relic-breakdown"><img src="assets/icons/relic.svg" width="16" height="16" align="center" /> Relic Corpus</a> &nbsp;&bull;&nbsp;
+  <a href="#procedural-audio-vault"><img src="assets/icons/sound.svg" width="16" height="16" align="center" /> Audio Vault</a> &nbsp;&bull;&nbsp;
+  <a href="#quickstart--installation"><img src="assets/icons/terminal.svg" width="16" height="16" align="center" /> Quickstart</a> &nbsp;&bull;&nbsp;
+  <a href="#open-data-hub"><img src="assets/icons/database.svg" width="16" height="16" align="center" /> Open Data</a> &nbsp;&bull;&nbsp;
+  <a href="#security--curator-terminal"><img src="assets/icons/shield.svg" width="16" height="16" align="center" /> Security</a>
+</p>
 
 </div>
 
-## 🪦 Overview
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
 
-**Internet Graveyard** is a living cyber-cemetery and digital archaeological registry documenting, verifying, and preserving the lifecycle of deceased internet platforms, fallen protocols, and discontinued online communities.
+## <img src="assets/icons/tombstone.svg" width="22" height="22" align="center" /> Overview &amp; Archival Mission
 
-When tech conglomerates pull the plug on beloved platforms, servers go dark, domains expire, and decades of human digital culture evaporate. **Internet Graveyard** treats defunct web entities with the forensic rigor of archaeological artifacts:
+When tech conglomerates shutter platforms, servers go dark, domains expire, and decades of human digital culture evaporate into 404 errors. **Internet Graveyard** is an open-source, living cyber-cemetery and digital archaeological laboratory dedicated to excavating, verifying, and preserving the memory of fallen web services, abandoned protocols, and vanished internet communities.
 
-- **1,027+ Authentic Indexed Relics:** 547 Confirmed Dead, 434 Active (under living watch), 36 Parked Zombies, and 10 Multi-Signal At-Risk platforms.
-- **AI "Ghost in the Machine" Machine Spirit Terminal:** Powered by `@google/genai` (`gemini-3.8-flash`) and procedural neural simulation fallback, allowing visitors to commune directly with the lingering souls of historical relics.
-- **AI Funeral Eulogy Generator:** Automatically composes moving, poetic funeral orations for any deceased platform, with one-click tribute download and copy actions.
-- **Forensic Autopsies & Death Certificates:** Verified causes of death, peak reach metrics, corporate parents, official shutdown dates, and printable coroner death certificates with tamper-proof wax seals.
-- **Automated Health Monitor & Daily Inquest Cron:** Scheduled background engine probing at-risk and zombie clusters for domain parking, HTTP degradation, and sunset announcements.
-- **Retro-Futuristic Obsidian UI:** Redesigned under UI/UX Pro Max principles with strict 60-30-10 color tokens, Cinzel/Inter/JetBrains Mono typography, toggleable CRT scanlines, and 44px+ mobile touch targets.
-- **Zero-Dependency Procedural Audio:** Synthesized dial-up modems, ICQ chirps, MSN nudges, Windows 95 pads, and 528Hz crystal singing bowl memorial candles generated dynamically in Web Audio API.
-- **Open Archaeological Data Hub:** Complete JSON dumps, RFC-4180 CSV exports, SHA-256 dataset checksums, and BibTeX academic citations.
+Operating with forensic rigor, Internet Graveyard treats dead software with the solemnity of archaeological artifacts:
 
----
+- <img src="assets/icons/relic.svg" width="16" height="16" align="center" /> **1,027+ Authentic Preserved Relics**: 547 confirmed deceased, 434 platforms under living observation, 36 parked zombies, and 10 multi-signal at-risk candidates.
+- <img src="assets/icons/ghost.svg" width="16" height="16" align="center" /> **AI "Ghost in the Machine" Machine Spirit Terminal**: Embedded on memorial dossiers, powered by Google's `@google/genai` (`gemini-3.8-flash`) with offline neural simulation fallback, enabling visitors to commune directly with the digital souls of historical platforms.
+- <img src="assets/icons/eulogy.svg" width="16" height="16" align="center" /> **AI Funeral Eulogy Generator &amp; Coroner Death Certificates**: Solemn commemorative funeral orations celebrating historical peaks, tragic fatal flaws, and eternal legacies, alongside printable autopsy certificates with cryptographic tamper-evident seals.
+- <img src="assets/icons/vital-signs.svg" width="16" height="16" align="center" /> **Automated Health Prober &amp; Daily Inquest Cron**: Autonomous background daemon continuously testing authoritative DNS, TLS certificates, HTTP status codes, and domain squatter parking signatures.
+- <img src="assets/icons/sound.svg" width="16" height="16" align="center" /> **Zero-Dependency Procedural Web Audio Engine**: Dial-up handshakes, ICQ chirps, MSN nudges, Windows 95/98 startup pads, and 528Hz crystal singing bowl candles synthesized dynamically in real time via the Web Audio API without external MP3 files.
+- <img src="assets/icons/time-warp.svg" width="16" height="16" align="center" /> **Web Time Warp 1990—2026 Interactive Scrubber**: Scrub through 36 continuous years of internet history with dynamic census recalculations, milestone triggers, and demise radar.
+- <img src="assets/icons/database.svg" width="16" height="16" align="center" /> **Open Archaeological Data Hub**: Streaming RFC-4180 CSV exports, complete JSON databases, SHA-256 integrity digests, and BibTeX academic citations.
 
-## 🏛️ Flagship Laboratories & Features
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
 
-### 👻 1. AI "Ghost in the Machine" Neural Terminal (`/grave/[slug]`)
-- Interactive retro-phosphor terminal embedded on every memorial dossier.
-- Visitors can converse in real time with the lingering digital soul of any defunct platform (Vine, GeoCities, Club Penguin, Friendster, Google Reader).
-- Powered by Google's latest **`@google/genai`** SDK utilizing the ultra-low latency **`gemini-3.8-flash`** model.
-- Includes a resilient offline procedural neural simulator that provides nostalgic, poetic reflections even in disconnected environments or when API keys are not supplied.
+## <img src="assets/icons/spark.svg" width="22" height="22" align="center" /> Flagship Laboratories &amp; Features
 
-### 📜 2. AI Funeral Eulogy Generator & Death Certificate (`/grave/[slug]`)
-- One-click **"AI Eulogy"** modal summons the High Digital Mortician to orate a solemn funeral speech celebrating the platform's genesis, cultural heyday, tragic demise, and eternal legacy.
-- Official **Coroner Death Certificate** generated on-demand with case serials (`MORT-YYYY-SLUG-ID`), primary kill factor classification, and fatal forensic notes.
-- Instant **"Print / Save PDF"**, direct tribute copy, and cathedral death knell tolling.
+### <img src="assets/icons/ghost.svg" width="20" height="20" align="center" /> 1. AI "Ghost in the Machine" Neural Terminal (`/grave/[slug]`)
+- **Real-Time Spirit Communion**: Visitors engage in bi-directional dialogue with the lingering soul of any defunct platform (e.g., Vine, GeoCities, Club Penguin, Friendster, Google Reader).
+- **Dual-Mode Intelligence**:
+  - **Live Generative Stream**: Direct integration with `@google/genai` utilizing the ultra-low latency **`gemini-3.8-flash`** model.
+  - **Offline Procedural Fallback**: Autonomous deterministic rule-based dialogue engine ensuring 100% uptime in offline or disconnected environments without API keys.
+- **Retro Phosphor CRT UI**: Rendered with green/cyan CRT raster scanlines, audible typing clicks, and interactive prompt commands.
 
-### 💓 3. Automated At-Risk Health Monitor & Inquest Cron (`/dying-now` & `/api/cron`)
-- Continuous background forensic monitoring of at-risk online services showing terminal symptoms of neglect, infrastructure rot, or impending sunset.
-- Automated priority probes testing authoritative DNS, TLS certificates, HTTP status codes, and squatter parking pages.
-- Persistent audit logs stored in `data/inquests.json` and queryable via `/api/inquests`.
+### <img src="assets/icons/eulogy.svg" width="20" height="20" align="center" /> 2. AI Funeral Eulogy Generator &amp; Coroner Death Certificate (`/grave/[slug]`)
+- **Solemn Funeral Orations**: One-click modal summons the High Digital Mortician to orate a personalized funeral speech covering the platform's genesis, cultural heyday, tragic demise, and eternal legacy.
+- **Coroner Autopsy Certificate**: Printable document with unique serial identifiers (`MORT-YYYY-SLUG-ID`), primary cause of death categorization, fatal forensic notes, and red wax stamp graphics.
+- **Export Capabilities**: Instant PDF print preview, clipboard tribute copy, and cathedral death knell tolling.
 
-### 🔍 4. Global Command Palette (`Cmd+K` / `Ctrl+K`)
-- Universal instant launcher accessible across every page via keyboard shortcut or header search.
-- Instant fuzzy query matching against all 1,027+ relics, aliases, causes of death, and historical eras.
-- Full arrow-key keyboard navigation with real-time acoustic click telemetry and responsive status badges.
+### <img src="assets/icons/vital-signs.svg" width="20" height="20" align="center" /> 3. Automated At-Risk Health Monitor &amp; Inquest Cron (`/dying-now` &amp; `/api/cron`)
+- **Forensic Network Probing**: Probes candidates showing symptoms of infrastructure rot, TLS certificate expiration, domain parking redirects, or impending sunset announcements.
+- **Automated Verification Matrix**: Multi-factor scoring across DNS resolution, HTTP status codes, WHOIS registrar changes, and Wayback capture delta.
+- **Persistent Inquest Registry**: Audit logs written to `data/inquests.json` and queryable via `/api/inquests`.
 
-### 🔊 5. "Sounds of the Dead Web" (Relic Audio Vault (`/sounds`))
-- **100% Procedural Web Audio API Synthesis** — zero external MP3 assets, zero network latency, zero broken links:
-  - **AOL 56k Dial-Up:** Complete handshake sequence (DTMF dialing + carrier negotiation + static hiss).
-  - **ICQ "Uh-Oh!":** Iconic dual-tone incoming message chirp.
-  - **MSN Messenger Nudge:** High-frequency rattle and dual bass punch with viewport earthquake animation.
-  - **Skype Incoming Call:** Procedural marimba bell arpeggios.
-  - **Windows 95/98 Startup:** Multi-oscillator ethereal chord pad inspired by Brian Eno.
-  - **Club Penguin Dance Club:** Synthesized 8-bit chiptune loop.
-  - **AIM Instant Messenger:** Procedural wooden door latches.
+### <img src="assets/icons/search.svg" width="20" height="20" align="center" /> 4. Universal Global Command Palette (`Cmd+K` / `Ctrl+K`)
+- **Instant Keyboard Navigation**: Accessible universally from any route with keyboard shortcut or navbar icon.
+- **Multi-Field Fuzzy Query Matching**: Searches 1,027+ relics by name, slug, aliases, parent company, era, and cause of death.
+- **Audible Haptic Feedback**: Procedural mechanical switch clicks on navigation and selection.
 
-### ⚖️ 6. Head-to-Head Archaeological Autopsy Tool (`/compare`)
-- Side-by-side post-mortems comparing why pioneers collapsed while successors survived:
-  - **Vine vs. TikTok:** Creative brevity vs. algorithmic distribution.
-  - **MySpace vs. Facebook:** Unrestrained HTML anarchy vs. standardized directory speed.
-  - **Napster vs. Spotify:** Unchecked P2P piracy vs. streaming label compromise.
-  - **Google Reader vs. Feedly:** Corporate sunsetting vs. agile independent survival.
-  - **Club Penguin vs. Roblox:** Curated Flash worlds vs. player-led creator economies.
+### <img src="assets/icons/sound.svg" width="20" height="20" align="center" /> 5. "Sounds of the Dead Web" Audio Relic Vault (`/sounds`)
+- **100% Procedural Synthesis**: Synthesized purely with mathematical Web Audio API oscillators, noise buffers, and biquad filters:
+  - **AOL 56k Dial-Up**: Complete DTMF dialing tones, carrier negotiation screech, and static hiss.
+  - **ICQ "Uh-Oh!"**: Dual-tone incoming message chirp.
+  - **MSN Messenger Nudge**: Dual-frequency bass punch with viewport earthquake tremor.
+  - **Windows 95/98 Startup**: Brian Eno-inspired ethereal multi-oscillator chord pad.
+  - **Club Penguin Dance Club**: 8-bit chiptune loop synthesis.
+  - **AIM Instant Messenger**: Procedural wooden door latch acoustics.
+  - **Skype Incoming Call**: Synthetic marimba bell arpeggios.
 
-### 🪦 7. Interactive 3D Cemetery Grounds (`/grounds`)
-- Isometric canvas rendering of the consecrated cyber-cemetery.
-- Themed plots and architectural mausoleums:
-  - **The Google Mausoleum** (Reader, Plus, Wave, Stadia, Orkut, Songza)
-  - **The P2P & Pirate Cove** (Napster, LimeWire, Kazaa, Grooveshark, Rdio)
-  - **Web 1.0 & Pioneer Row** (Netscape, AltaVista, Lycos, Ask Jeeves, GeoCities)
-  - **Social Media Grounds** (Vine, MySpace, Friendster, Path, Secret, Yik Yak)
-  - **Messaging Valley** (ICQ, AIM, MSN, Yahoo Messenger, Omegle)
-  - **Gaming & Virtual Crypt** (Club Penguin, Adobe Flash, PlayStation Home, Quibi)
-  - **Silicon Hardware & Device Row** (Pebble, Ouya, Essential Phone, Google Glass)
+### <img src="assets/icons/autopsy.svg" width="20" height="20" align="center" /> 6. Head-to-Head Archaeological Autopsy Tool (`/compare`)
+- **Comparative Post-Mortem Analysis**: Side-by-side autopsy breakdowns contrasting fallen pioneers against surviving successors:
+  - **Vine vs. TikTok**: Creative micro-loops vs. algorithmic engagement optimization.
+  - **MySpace vs. Facebook**: Unfettered HTML customizability vs. uniform identity directories.
+  - **Napster vs. Spotify**: P2P piracy battles vs. licensed streaming models.
+  - **Google Reader vs. Feedly**: Corporate deprecation vs. agile niche survival.
+  - **Club Penguin vs. Roblox**: Curated Flash worlds vs. user-generated creator economies.
 
-### ⏳ 9. "Web Time Warp" 1990–2026 Interactive Scrubber (`/time-warp`)
-- Scrub through 36 years of internet history with a continuous tactile time slider.
-- Real-time census calculation across 1,027+ services showing:
-  - **Active Platforms** surviving in each historical epoch.
-  - **Platforms Founded** in that specific year.
-  - **Demise Casualties** claimed by technological or corporate extinction.
-- Transport controls with Play/Pause loop, 1x/2x/4x speed acceleration, and quick-jump milestone buttons (1994 Early Web, 1999 Dot-Com Bubble, 2004 Web 2.0, 2012 Cloud & Mobile, 2017 Tech Consolidation, 2024 Modern Sunset).
-- Highlights prominent demises with deep-link navigation directly to memorial autopsies.
+### <img src="assets/icons/grounds.svg" width="20" height="20" align="center" /> 7. Interactive 3D Cemetery Grounds (`/grounds`)
+- **Isometric Canvas Navigation**: Interactive HTML5 isometric Necropolis grid map.
+- **Themed Plots &amp; Mausoleums**:
+  - **The Google Mausoleum** (Reader, Plus, Wave, Stadia, Orkut, Songza, Buzz)
+  - **The P2P &amp; Pirate Cove** (Napster, LimeWire, Kazaa, Grooveshark, Rdio)
+  - **Web 1.0 &amp; Pioneer Row** (Netscape, AltaVista, Lycos, Ask Jeeves, GeoCities)
+  - **Social Media Crypt** (Vine, MySpace, Friendster, Path, Secret, Yik Yak)
+  - **Messaging Valley** (ICQ, AIM, MSN Messenger, Yahoo Messenger, Omegle)
+  - **Gaming &amp; Virtual Row** (Club Penguin, Adobe Flash, PlayStation Home, Quibi)
 
-### 🕯️ 10. Real-Time Memorial Guestbook & Virtual Offerings Altar (`/grave/[slug]`)
-- Multi-tier virtual tributes with dedicated procedural acoustic synthesis:
-  - 🕯️ **Light 528Hz Candle:** Purifying crystal sine chime.
-  - 🌹 **Leave Digital Rose:** Reverberant Tibetan singing bowl.
-  - 💾 **Lay Floppy Disk:** 3.5" tactile magnetic disk drive stepping click.
-  - 🔔 **Ring Death Knell:** Somber low-frequency cathedral bell.
-- **Permanent Epitaph Guestbook:** Visitors can inscribe enduring condolences, memories, and personal farewells directly onto the relic's tombstone.
-- Interactive condolence heart reactions (+1) with local persistence.
+### <img src="assets/icons/time-warp.svg" width="20" height="20" align="center" /> 8. "Web Time Warp" 1990—2026 Interactive Scrubber (`/time-warp`)
+- **Continuous 36-Year Timeline Slider**: Tactile scrubber recalculating the internet census in real time:
+  - **Surviving Platforms**: Total active platforms alive in any given year.
+  - **Founding Milestones**: New entities launched in that historical epoch.
+  - **Extinction Casualties**: Platforms terminated in that calendar year.
+- **Playback Controls**: Play/pause autoplay, 1x/2x/4x speed acceleration, and quick-jump milestone buttons (1994 Early Web, 1999 Dot-Com Bubble, 2004 Web 2.0, 2012 Cloud/Mobile, 2024 Modern Sunset).
 
-### 📺 11. Interactive Wayback Time Capsule in Vintage Browser Frame (`/grave/[slug]`)
-- Built inside authentic **Vintage Netscape Navigator 4 / Internet Explorer 6** browser chrome with beveled toolbars, pseudo-3D buttons, and era-appropriate title bars.
-- Live multi-epoch snapshot selector:
-  - **Genesis & Launch Era** (Year of creation)
-  - **Peak Golden Age** (Cultural apex)
-  - **Final Moments & Sunset 404** (Shutdown year)
-- Dual mode: Overview card view with direct Internet Archive deep-links, or live sandboxed archival iframe emulation with simulated 56k dial-up modem handshake progress bar.
+### <img src="assets/icons/candle.svg" width="20" height="20" align="center" /> 9. Virtual Offerings Altar &amp; Memorial Guestbook (`/grave/[slug]`)
+- **Acoustic Offerings**:
+  - <img src="assets/icons/candle.svg" width="14" height="14" align="center" /> **Light 528Hz Memorial Candle**: Purifying crystal singing bowl chime.
+  - <img src="assets/icons/spark.svg" width="14" height="14" align="center" /> **Leave Digital Rose**: Reverberant Tibetan singing bowl.
+  - <img src="assets/icons/database.svg" width="14" height="14" align="center" /> **Lay 3.5" Floppy Disk**: Tactile magnetic stepper motor acoustic click.
+  - <img src="assets/icons/relic.svg" width="14" height="14" align="center" /> **Toll Cathedral Death Knell**: Deep resonant funeral bell.
+- **Permanent Epitaph Guestbook**: Public memory ledger allowing visitors to inscribe condolences, reflections, and nostalgic epitaphs directly onto tombstone memorials.
 
-### 🖼️ 12. Dynamic Social OpenGraph Tombstone Generator (`/api/og` & `/api/og/grave`)
-- High-fidelity vector SVG OpenGraph card generator running on edge-compatible native route handlers.
-- Custom dynamic cards for all 1,027+ individual relics featuring status badges, lifespan dates, category tags, primary domains, official epitaph quotes, cause-of-death breakdowns, and tribute counters.
-- Global site card with aggregate relic counts and cemetery telemetry for seamless social sharing across Discord, Twitter/X, LinkedIn, and Facebook.
+### <img src="assets/icons/vintage-browser.svg" width="20" height="20" align="center" /> 10. Vintage Browser Frame (Netscape 4 / IE 6) Time Capsule
+- **Authentic Era UI**: Sandboxed archival viewer rendered inside vintage Netscape Navigator 4 and Internet Explorer 6 window frames.
+- **Triple-Epoch Selector**: Genesis Launch &bull; Cultural Apex &bull; Final 404 Sunset.
+- **Simulated 56k Modem Delay**: Optional simulated progress bar and acoustic connection sequence recreating authentic dial-up speeds.
 
-### 📊 13. Open Archaeological Data Hub (`/export`)
-- **Full JSON Repository:** Complete object dataset with life timelines, cause-of-death dossiers, archival Wayback coordinates, and metadata.
-- **RFC-4180 Forensic CSV:** Tabular dataset ready for Python Pandas, R, Tableau, or Excel data analysis pipelines.
-- **Cryptographic Integrity Digest:** SHA-256 hash checksums ensuring tamper-evident dataset integrity.
-- **Academic Citation Generator:** Ready-to-copy BibTeX reference for academic papers and digital preservation research.
+### <img src="assets/icons/opengraph.svg" width="20" height="20" align="center" /> 11. Dynamic Vector OpenGraph Tombstone Engine (`/api/og`)
+- **Edge Vector SVG Generation**: Dynamically generates unique high-resolution social preview cards for every one of the 1,027+ memorials.
+- **Rich Metric Overlay**: Includes lifespan dates, category markers, cause of death summary, and live tribute candle counts for Twitter/X, Discord, and LinkedIn embeds.
 
----
+### <img src="assets/icons/database.svg" width="20" height="20" align="center" /> 12. Open Archaeological Data Hub (`/export`)
+- **RFC-4180 Streaming CSV**: Optimized for data science workflows in Python (Pandas), R, and Tableau.
+- **Full JSON Corpus**: Complete relational data dump with timelines, evidence arrays, and archived URLs.
+- **Cryptographic Tamper-Proof Digest**: SHA-256 hash checksums ensuring archival provenance.
+- **BibTeX Academic Citation**: One-click citation format for digital history researchers and scholars.
 
-## 🏗️ Architecture & Directory Structure
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
+
+## <img src="assets/icons/pipeline-node.svg" width="22" height="22" align="center" /> Architectural Pipeline
 
 ```
-internet-graveyard/
-├── app/                        # Next.js 14 App Router (32 routes)
-│   ├── api/                    # Route handlers
-│   │   ├── ai/                 # Gemini API endpoints
-│   │   │   ├── ghost/          # Interactive relic dialogue route (@google/genai)
-│   │   │   └── eulogy/         # AI funeral oration generator
-│   │   ├── admin/              # Curator auth & administration
-│   │   ├── at-risk/            # At-risk candidate feeds
-│   │   ├── cron/               # Scheduled autonomous crawler & probe engine
-│   │   ├── entities/           # Entity REST API, candle & offerings endpoints
-│   │   │   └── [slug]/
-│   │   │       ├── candle/     # Candle counter endpoint
-│   │   │       ├── epitaph/    # Guestbook epitaph inscription & heart reactions
-│   │   │       └── offerings/  # Multi-tier virtual offerings (candle, rose, floppy, bell)
-│   │   ├── export/csv/         # RFC-4180 streaming CSV exporter
-│   │   ├── inquests/           # Persistent inquest history & probe telemetry
-│   │   ├── og/                 # Dynamic OpenGraph Tombstone Generators
-│   │   │   ├── route.ts        # Global cemetery OG card
-│   │   │   └── grave/route.ts  # Per-memorial dynamic tombstone OG card
-│   │   ├── random/             # Random memorial redirector
-│   │   ├── recent/             # Recently buried platform stream
-│   │   ├── scanner/probe/      # Vital Signs live network & DNS prober
-│   │   ├── scraper/            # Automated web crawler endpoints
-│   │   ├── search/             # Multi-field fuzzy search engine
-│   │   ├── submissions/        # Community submission queue
-│   │   └── timeline/           # Epoch & decade timeline feeds
-│   ├── admin/                  # Curator Command Terminal (password-gated)
-│   ├── compare/                # Head-to-Head Autopsy Rivalries
-│   ├── dying-now/              # At-Risk Platform Radar & Inquest Monitor
-│   ├── explore/                # Search & Tag-Based Archaeology Directory (Grid & Ledger)
-│   ├── export/                 # Open Archaeological Data Hub (JSON, CSV, BibTeX)
-│   ├── gazette/                # The Sunset Gazette Broadsheet
-│   ├── grave/[slug]/           # Memorial Dossier, Ghost Terminal, Time Capsule & Offerings Altar
-│   ├── grounds/                # 3D Isometric Cemetery Grounds Canvas
-│   ├── lookup/                 # Vital Signs Domain Prober
-│   ├── random/                 # Random Memorial Excavator
-│   ├── recently-buried/        # Recently Defunct Platforms
-│   ├── sounds/                 # Relic Audio Vault
-│   ├── submit/                 # Community Forensic Submission Form
-│   ├── time-warp/              # Web Time Warp 1990–2026 Interactive Scrubber
-│   ├── timeline/               # Decade-by-Decade Web History
-│   ├── layout.tsx              # Root Layout (Cinzel, JetBrains Mono, Scanlines, SoundFx)
-│   └── page.tsx                # Central Hub, Nixie Meters, & Tombstone of the Day
-├── components/                 # UI & Archaeological Components
-│   ├── CommandPalette.tsx      # Universal Cmd+K fuzzy search modal
-│   ├── DigitalCandle.tsx       # 528Hz crystal singing bowl memorial candle
-│   ├── DigitalGhostTerminal.tsx# Interactive retro-phosphor machine spirit terminal
-│   ├── EulogyModal.tsx         # Poetic funeral speech presentation dialog
-│   ├── DeathCertificateModal.tsx # Printable Coroner Autopsy Certificate
-│   ├── EntityLogo.tsx          # Authentic SVG/PNG logo renderer
-│   ├── GraveCard.tsx           # Netscape-style monument card with footer actions
-│   ├── Navbar.tsx              # Retro-futuristic OS titlebar & responsive navigation
-│   ├── NecropolisCanvas.tsx    # Interactive HTML5 3D isometric cemetery canvas
-│   ├── StatusBadge.tsx         # Responsive, non-wrapping lifecycle status badge
-│   ├── TodayInHistoryBanner.tsx# Daily anniversary newspaper dispatch
-│   └── WaybackTimeMachine.tsx  # Vintage browser historical frame
-├── data/                       # Curated Relic Databases (1,027+ Authentic Sites)
-│   ├── graveyard.json          # Main JSON Database (1,027 records)
-│   ├── inquests.json           # Persistent daily automation inquest logs
-│   ├── seed-entities-batch2.ts # Curated TypeScript dataset with full metadata
-│   ├── rivalries.ts            # Forensic head-to-head showdowns
-│   ├── sounds.ts               # Audio relic synthesizer specifications
-│   └── dispatches.ts           # Curated historical news broadsheet entries
-├── lib/                        # Core Systems
-│   ├── audio/
-│   │   ├── soundArchive.ts     # Vintage soundboard Web Audio synthesis
-│   │   └── soundFx.ts          # Zero-dependency UI click & chime engine
-│   ├── auth/admin.ts           # Curator security & passkey authorization
-│   ├── automation/cronEngine.ts# Scheduled crawler, at-risk health probe & inquest logger
-│   ├── db/index.ts             # In-memory JSON database engine with querying
-│   ├── discovery/              # Multi-source scraper & verifier
-│   └── search/searchEngine.ts  # Multi-field scoring and ranking algorithm
-├── scripts/
-│   ├── run-scraper.mjs         # Standalone CLI archaeological crawler
-│   └── cron-daemon.mjs         # Autonomous background scraper daemon
-└── types/                      # TypeScript Schemas & Enums
+  ┌──────────────────────┐       ┌────────────────────────┐       ┌──────────────────────┐       ┌──────────────────────┐
+  │   TIER 1: INTAKE     │  ───► │   TIER 2: ENGINE & AI  │  ───► │  TIER 3: VISUAL LABS │  ───► │  TIER 4: OPEN DATA   │
+  │                      │       │                        │       │                      │       │                      │
+  │ • 1,027+ Relic Base  │       │ • Next.js 14 App Router│       │ • Web Time Warp 36yr │       │ • Streaming RFC CSV  │
+  │ • Cron Daemon Prober │       │ • Gemini 3.8 Flash AI  │       │ • 3D Grounds Canvas  │       │ • Dynamic Vector OG  │
+  │ • Wayback CDX Index  │       │ • Web Audio Synthesis  │       │ • Vintage Browser UI │       │ • SHA-256 Checksums  │
+  │ • Community Intake   │       │ • In-Memory Index DB   │       │ • Autopsy Compare    │       │ • Curator Terminal   │
+  └──────────────────────┘       └────────────────────────┘       └──────────────────────┘       └──────────────────────┘
 ```
 
----
+<p align="center">
+  <img src="assets/architecture.svg" width="100%" alt="Architectural Pipeline Diagram" />
+</p>
 
-## 🚀 Getting Started
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
 
-### 1. Prerequisites
-- **Node.js**: v18.17+ or v20+ recommended
-- **npm** or **pnpm**
-- **Google Gemini API Key** (Optional, for live generative AI responses; system features built-in fallback engine)
+## <img src="assets/icons/relic.svg" width="22" height="22" align="center" /> Forensic Corpus &amp; Relic Breakdown
 
-### 2. Clone and Install
+The catalog classifies every internet artifact under strict lifecycle states:
+
+| Lifecycle State | Preserved Count | Description &amp; Verification Criteria |
+| :--- | :---: | :--- |
+| <img src="assets/icons/tombstone.svg" width="16" height="16" align="center" /> **CONFIRMED_DEAD** | **547** | Permanently decommissioned, servers powered down, domain defunct or redirected, verified via primary corporate announcement and Wayback archival records. |
+| <img src="assets/icons/spark.svg" width="16" height="16" align="center" /> **ACTIVE** | **434** | Currently operating platforms tracked under living surveillance to document real-time shifts in ownership, traffic, and feature deprecation. |
+| <img src="assets/icons/vital-signs.svg" width="16" height="16" align="center" /> **ZOMBIE** | **36** | Abandoned platforms or domains occupied by squatters, parked ad pages, or automated spam engines where original software is dead. |
+| <img src="assets/icons/ghost.svg" width="16" height="16" align="center" /> **AT_RISK** | **10** | Platforms exhibiting critical infrastructure degradation, investor pullouts, expired SSL certificates, or official pre-sunset notifications. |
+| **Total Archival Corpus** | **1,027+** | **Full archaeological coverage across Web 1.0, Web 2.0, Mobile Era, and Modern SaaS.** |
+
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
+
+## <img src="assets/icons/sound.svg" width="22" height="22" align="center" /> Procedural Audio Vault
+
+All acoustic relics in the vault are synthesized dynamically via the Web Audio API without relying on external media files:
+
+```typescript
+// Sample Procedural ICQ "Uh-Oh" Dual-Chirp Oscillator (lib/audio/soundArchive.ts)
+const ctx = new (window.AudioContext || window.webkitAudioContext)();
+const osc = ctx.createOscillator();
+const gain = ctx.createGain();
+
+osc.type = "sine";
+osc.frequency.setValueAtTime(698.46, ctx.currentTime); // F5
+osc.frequency.exponentialRampToValueAtTime(880.00, ctx.currentTime + 0.12); // A5
+
+gain.gain.setValueAtTime(0.3, ctx.currentTime);
+gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+
+osc.connect(gain);
+gain.connect(ctx.destination);
+osc.start();
+osc.stop(ctx.currentTime + 0.18);
+```
+
+| Acoustic Relic | Synthesis Method | Acoustic Signature |
+| :--- | :--- | :--- |
+| **AOL 56k Dial-Up** | DTMF dual-tones + carrier frequency modulation + white-noise filter | Authentic 1990s modem handshake negotiation |
+| **ICQ "Uh-Oh!"** | Dual sine oscillators with exponential frequency ramp | The universal instant messaging message alert |
+| **MSN Nudge** | Low-frequency square wave sub-bass + viewport tremor sync | High-energy screen-shaking attention prompt |
+| **Windows 95/98** | Polyphonic additive sine synthesis with Brian Eno envelope | Nostalgic multi-octave PC boot chord pad |
+| **Club Penguin Club** | 8-bit periodic wave oscillator loop at 128 BPM | Chiptune dance floor synthesizer pattern |
+| **AIM Door Latch** | Bandpass filtered noise burst + transient mechanical click | Classic buddy sign-on wooden door latch |
+| **528Hz Memorial Candle**| Pure 528Hz Solfeggio sine wave with exponential decay | Meditative crystal singing bowl frequency |
+
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
+
+## <img src="assets/icons/terminal.svg" width="22" height="22" align="center" /> Quickstart &amp; Installation
+
+### Prerequisites
+- **Node.js**: v18.17.0 or newer (v20+ LTS recommended)
+- **npm**, **pnpm**, or **yarn**
+
+### 1. Clone the Repository
 ```bash
-# Clone the repository
 git clone https://github.com/VarshuDev/internet-graveyard.git
-
-# Enter project directory
 cd internet-graveyard
+```
 
-# Install dependencies
+### 2. Install Dependencies
+```bash
 npm install
 ```
 
-### 3. Configure Environment (Optional)
-Create a `.env.local` file:
+### 3. Configure Environment Variables (Optional)
+Create a `.env.local` file in the project root:
 ```env
-# Optional: Enables live generative AI machine spirits & funeral eulogies
+# Optional: Enables live Google Gemini 3.8 Flash AI ghost communion and eulogies
+# If unset, the system automatically falls back to the deterministic procedural simulator
 GEMINI_API_KEY=your_gemini_api_key_here
 
-# Curator administration & cron passkey
-CRON_SECRET=your_cron_secret
-ADMIN_PASSKEY=your_admin_passkey
+# Curator Command Center security passkey
+ADMIN_SECRET_KEY=graveyard-curator-2024
+
+# Scheduled Inquest Cron authorization secret
+CRON_SECRET=your_cron_secret_here
 ```
 
-### 4. Run Development Server
+### 4. Launch Local Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser:
+- **Central Monument Hub**: `http://localhost:3000/`
+- **Archaeological Directory**: `http://localhost:3000/explore`
+- **Web Time Warp Scrubber**: `http://localhost:3000/time-warp`
+- **Sounds of the Dead Web**: `http://localhost:3000/sounds`
+- **3D Cemetery Grounds**: `http://localhost:3000/grounds`
+- **Autopsy Rivalries**: `http://localhost:3000/compare`
+- **Vital Signs Network Scanner**: `http://localhost:3000/lookup`
+- **Open Data Hub**: `http://localhost:3000/export`
+- **Curator Terminal**: `http://localhost:3000/admin`
 
 ### 5. Build for Production
 ```bash
@@ -253,38 +293,78 @@ npm run build
 npm run start
 ```
 
----
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
 
-## 🛡️ Curator Command Center (`/admin`)
+## <img src="assets/icons/flask-test.svg" width="22" height="22" align="center" /> Testing &amp; Verification
 
-The platform contains an internal Curator Terminal for managing submissions, editing entities, and operating the automated discovery crawler.
+```bash
+# Verify TypeScript compilation and schemas
+npx tsc --noEmit
 
-### Security Architecture:
-- **Hidden from Navigation:** Removed from public navigation headers and sitemaps.
-- **API Guard (`401 Unauthorized`):** Server-side verification on all `/api/admin` and `/api/scraper` requests via bearer token or encrypted session cookie.
-- **Passkey Gate:** Unauthenticated visitors encounter a cyber-archival lock terminal.
-- **Session Control:** Generates a secure 24-hour HTTP-only cookie with a 1-click **"Lock Terminal"** logout button.
+# Run production Next.js build
+npm run build
 
-| Configuration | Local Default | Production Environment |
-| :--- | :--- | :--- |
-| **Passkey** | `graveyard-curator-2024` | `process.env.ADMIN_SECRET_KEY` |
-| **Direct URL** | `/admin` | `/admin` |
+# Execute standalone archaeological discovery crawler
+npm run scrape
+```
 
----
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
 
-## 📜 Documentation & Policies
+## <img src="assets/icons/shield.svg" width="22" height="22" align="center" /> Security &amp; Curator Terminal (`/admin`)
 
-- **[LICENSE](LICENSE)**: MIT License
-- **[CREDITS.md](CREDITS.md)**: Digital preservation archives & audio engine attributions
-- **[CONTRIBUTING.md](CONTRIBUTING.md)**: Guidelines for excavating and submitting defunct entities
-- **[SECURITY.md](SECURITY.md)**: Curator Terminal security policy & vulnerability disclosure
+The platform contains an internal **Curator Command Terminal** designed for record curation, submission moderation, and scanner telemetry.
 
----
+- **Public Route Obfuscation**: The `/admin` route is completely stripped from public navigation menus and sitemaps.
+- **Passkey Challenge**: Access requires an authenticated passkey challenge setting a secure 24-hour HTTP-only session cookie.
+- **API Guard**: All `/api/admin/*` routes enforce strict bearer token or cookie verification (`401 Unauthorized` on failure).
+- **One-Click Session Termination**: Dedicated **"Lock Terminal"** control invalidates and purges the administrative cookie.
 
-## 👤 Author & Maintainer
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
 
-**Varshan (VarshuDev)**
-- GitHub: [@VarshuDev](https://github.com/VarshuDev)
-- Project: [internet-graveyard](https://github.com/VarshuDev/internet-graveyard)
+## <img src="assets/icons/database.svg" width="22" height="22" align="center" /> Open Data Hub &amp; Academic Citation
 
-*"May their servers rest in peace, and their protocols never be forgotten."*
+Internet Graveyard provides unrestricted open access to its digital archaeology datasets:
+
+- **JSON Corpus**: Direct export of all 1,027+ relic dossiers via [`/api/export/json`](https://internet-graveyard-seven.vercel.app/export)
+- **RFC-4180 CSV**: High-speed streaming CSV export via [`/api/export/csv`](https://internet-graveyard-seven.vercel.app/api/export/csv)
+
+### BibTeX Citation
+```bibtex
+@misc{varshudev2026internetgraveyard,
+  author = {Varshan (VarshuDev)},
+  title = {Internet Graveyard: Defunct Web Archaeology and Living Digital Cemetery},
+  year = {2026},
+  publisher = {GitHub},
+  howpublished = {\url{https://github.com/VarshuDev/internet-graveyard}}
+}
+```
+
+<p align="center">
+  <img src="assets/cyber-divider.svg" width="100%" alt="Divider" />
+</p>
+
+## <img src="assets/icons/crown.svg" width="22" height="22" align="center" /> Author &amp; Credits
+
+Engineered and curated by **[VarshuDev](https://github.com/VarshuDev)**.
+
+- **GitHub Profile**: [@VarshuDev](https://github.com/VarshuDev)
+- **Repository**: [VarshuDev/internet-graveyard](https://github.com/VarshuDev/internet-graveyard)
+- **Live Deployment**: [internet-graveyard-seven.vercel.app](https://internet-graveyard-seven.vercel.app/)
+
+Historical archives and citations made possible by [The Internet Archive (Wayback Machine)](https://archive.org/) and the digital preservation community.
+
+Released under the **[MIT License](LICENSE)**.
+
+<div align="center">
+
+```text
+// END OF TRANSMISSION // INTERNET GRAVEYARD // MAY THEIR SERVERS REST IN PEACE //
+```
+
+</div>

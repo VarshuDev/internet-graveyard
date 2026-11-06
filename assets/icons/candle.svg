@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+  <defs>
+    <style>
+      @keyframes flameDance {
+        0%, 100% { transform: scale(1) translate(0, 0) rotate(0deg); filter: drop-shadow(0 0 3px #f59e0b) drop-shadow(0 0 8px #ff2a5f); }
+        25% { transform: scale(1.1, 0.95) translate(-0.5px, -1px) rotate(-3deg); }
+        75% { transform: scale(0.95, 1.1) translate(0.5px, -1px) rotate(3deg); filter: drop-shadow(0 0 5px #fbbf24) drop-shadow(0 0 12px #ff2a5f); }
+      }
+      @keyframes waxGlow {
+        0%, 100% { stroke: #38bdf8; }
+        50% { stroke: #00f5d4; }
+      }
+      .candle-flame { animation: flameDance 1.6s ease-in-out infinite; transform-origin: 12px 7px; fill: #fbbf24; }
+      .candle-body { animation: waxGlow 3s ease-in-out infinite; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; fill: rgba(56, 189, 248, 0.08); }
+    </style>
+  </defs>
+  <!-- Wick -->
+  <line x1="12" y1="7" x2="12" y2="10" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" />
+  <!-- Dancing Flame -->
+  <path class="candle-flame" d="M12 2c-1.5 2.5-2 3.8-2 5a2 2 0 0 0 4 0c0-1.2-.5-2.5-2-5z" />
+  <!-- Candle Cylinder -->
+  <rect class="candle-body" x="7" y="10" width="10" height="11" rx="2" />
+  <!-- Candle Dish / Base -->
+  <path d="M4 21h16" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+  <!-- Inner Flame Core -->
+  <circle cx="12" cy="7" r="0.75" fill="#fff" />
+</svg>
