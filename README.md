@@ -14,6 +14,9 @@
 
 <!-- High-Contrast Status Badges -->
 <p align="center">
+  <a href="https://github.com/VarshuDev/internet-graveyard/actions/workflows/ci.yml">
+    <img src="https://github.com/VarshuDev/internet-graveyard/actions/workflows/ci.yml/badge.svg?branch=main" alt="Build Status" />
+  </a>
   <a href="https://nextjs.org">
     <img src="https://img.shields.io/badge/Framework-Next.js_14.2-38bdf8?style=for-the-badge&logo=next.js&logoColor=white&labelColor=08090d" alt="Next.js 14" />
   </a>
