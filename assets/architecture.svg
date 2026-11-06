@@ -57,8 +57,8 @@
       <!-- Box 1 -->
       <rect width="172" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
       <text x="12" y="22" font-weight="700" fill="#f8fafc">1,027+ Relic Dossiers</text>
-      <text x="12" y="38" fill="#94a3b8">547 Dead &bull; 434 Active</text>
-      <text x="12" y="54" fill="#64748b">36 Zombies &bull; 10 At-Risk</text>
+      <text x="12" y="38" fill="#94a3b8">547 Dead &#8226; 434 Active</text>
+      <text x="12" y="54" fill="#64748b">36 Zombies &#8226; 10 At-Risk</text>
 
       <!-- Box 2 -->
       <g transform="translate(0, 85)">
@@ -73,7 +73,7 @@
         <rect width="172" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
         <text x="12" y="22" font-weight="700" fill="#f8fafc">Wayback Coordinates</text>
         <text x="12" y="38" fill="#94a3b8">CDX Index timestamps</text>
-        <text x="12" y="54" fill="#64748b">Genesis &bull; Apex &bull; Sunset</text>
+        <text x="12" y="54" fill="#64748b">Genesis &#8226; Apex &#8226; Sunset</text>
       </g>
 
       <!-- Box 4 -->
@@ -115,7 +115,7 @@
         <rect width="182" height="70" rx="6" fill="#0f172a" stroke="#1e293b"/>
         <text x="12" y="22" font-weight="700" fill="#10b981">Web Audio Synthesis</text>
         <text x="12" y="38" fill="#94a3b8">Procedural oscillators</text>
-        <text x="12" y="54" fill="#64748b">AOL &bull; ICQ &bull; MSN &bull; 528Hz</text>
+        <text x="12" y="54" fill="#64748b">AOL &#8226; ICQ &#8226; MSN &#8226; 528Hz</text>
       </g>
 
       <!-- Box 4 -->
