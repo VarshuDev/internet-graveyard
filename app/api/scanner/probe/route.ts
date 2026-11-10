@@ -38,9 +38,10 @@ async function handleProbe(domainOrUrl: string) {
 
   // Check if this domain already exists in our verified graveyard database
   const allGraves = graveyardDb.getAllEntities();
+  const normClean = cleanInput.replace(/^www\./, '');
   const matchedEntity = allGraves.find(g => {
-    const d = g.primary_domain.toLowerCase();
-    return d === cleanInput || cleanInput.includes(d) || d.includes(cleanInput);
+    const d = g.primary_domain.toLowerCase().replace(/^www\./, '');
+    return d === normClean || normClean.endsWith('.' + d) || d.endsWith('.' + normClean);
   });
 
   if (matchedEntity) {

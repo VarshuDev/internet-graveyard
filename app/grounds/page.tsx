@@ -101,6 +101,7 @@ const CEMETERY_PLOTS: CemeteryPlot[] = [
 ];
 
 export default function GroundsPage() {
+  const [allEntities, setAllEntities] = useState<GraveEntity[]>(ALL_SEED_ENTITIES);
   const [viewMode, setViewMode] = useState<'isometric' | 'grid'>('isometric');
   const [activePlotId, setActivePlotId] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -114,6 +115,27 @@ export default function GroundsPage() {
   const [litSlugs, setLitSlugs] = useState<Set<string>>(new Set());
   const [visibleCount, setVisibleCount] = useState<number>(32);
 
+  // Fetch full live entities catalog
+  React.useEffect(() => {
+    fetch('/api/entities')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setAllEntities(data);
+          setCandleCounts(prev => {
+            const next = { ...prev };
+            data.forEach((e: GraveEntity) => {
+              if (next[e.slug] === undefined) {
+                next[e.slug] = e.candle_count || 120;
+              }
+            });
+            return next;
+          });
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   // Reset pagination when active plot or search changes
   React.useEffect(() => {
     setVisibleCount(32);
@@ -124,7 +146,7 @@ export default function GroundsPage() {
   }, [activePlotId]);
 
   const displayedEntities = useMemo(() => {
-    return ALL_SEED_ENTITIES.filter(e => {
+    return allEntities.filter(e => {
       const matchesPlot = activePlot.filter(e);
       if (!matchesPlot) return false;
 
@@ -224,7 +246,7 @@ export default function GroundsPage() {
               <div className="flex items-center gap-6 text-xs font-mono bg-zinc-950/90 p-4 rounded-2xl border border-white/10 shrink-0">
                 <div className="space-y-0.5">
                   <div className="text-zinc-500 uppercase">Plots</div>
-                  <div className="text-xl font-bold text-white">{ALL_SEED_ENTITIES.length}</div>
+                  <div className="text-xl font-bold text-white">{allEntities.length.toLocaleString()}</div>
                 </div>
                 <div className="w-px h-8 bg-white/10" />
                 <div className="space-y-0.5">

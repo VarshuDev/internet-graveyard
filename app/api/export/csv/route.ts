@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ALL_SEED_ENTITIES } from '@/data/seed-entities-batch2';
+import { graveyardDb } from '@/lib/db';
 
 function escapeCSV(val: unknown): string {
   if (val === null || val === undefined) return '""';
@@ -8,6 +8,7 @@ function escapeCSV(val: unknown): string {
 }
 
 export async function GET() {
+  const entities = graveyardDb.getAllEntities();
   const headers = [
     'id',
     'name',
@@ -29,7 +30,7 @@ export async function GET() {
     'verified_at'
   ];
 
-  const rows = ALL_SEED_ENTITIES.map((e) => {
+  const rows = entities.map((e) => {
     return [
       escapeCSV(e.id),
       escapeCSV(e.name),

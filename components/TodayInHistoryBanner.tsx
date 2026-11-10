@@ -7,14 +7,14 @@ import { getDispatchesForDate, HistoricalEvent } from '@/lib/history/anniversari
 import { cn } from '@/lib/utils';
 
 export const TodayInHistoryBanner: React.FC = () => {
-  const [dispatch, setDispatch] = useState<HistoricalEvent | null>(null);
+  const [dispatch, setDispatch] = useState<HistoricalEvent>(() => {
+    return getDispatchesForDate(new Date()).todayDispatch;
+  });
 
   useEffect(() => {
     const { todayDispatch } = getDispatchesForDate(new Date());
     setDispatch(todayDispatch);
   }, []);
-
-  if (!dispatch) return null;
 
   return (
     <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 my-6">

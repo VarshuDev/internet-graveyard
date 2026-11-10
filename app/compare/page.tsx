@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import { GraveEntity } from '@/types/graveyard';
 import { 
   Scale, 
   Skull, 
@@ -25,6 +26,7 @@ import { StatusBadge } from '@/components/StatusBadge';
 import { cn } from '@/lib/utils';
 
 export default function ComparePage() {
+  const [allEntities, setAllEntities] = useState<GraveEntity[]>(ALL_SEED_ENTITIES);
   const [mode, setMode] = useState<'curated' | 'custom'>('curated');
   const [selectedRivalry, setSelectedRivalry] = useState<RivalryItem>(CURATED_RIVALRIES[0]);
 
@@ -32,8 +34,23 @@ export default function ComparePage() {
   const [customSlugA, setCustomSlugA] = useState<string>('napster');
   const [customSlugB, setCustomSlugB] = useState<string>('limewire');
 
-  const customEntityA = ALL_SEED_ENTITIES.find(e => e.slug === customSlugA) || ALL_SEED_ENTITIES[0];
-  const customEntityB = ALL_SEED_ENTITIES.find(e => e.slug === customSlugB) || ALL_SEED_ENTITIES[1];
+  useEffect(() => {
+    fetch('/api/entities')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setAllEntities(data);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const sortedEntities = useMemo(() => {
+    return [...allEntities].sort((a, b) => a.name.localeCompare(b.name));
+  }, [allEntities]);
+
+  const customEntityA = allEntities.find(e => e.slug === customSlugA) || allEntities[0];
+  const customEntityB = allEntities.find(e => e.slug === customSlugB) || allEntities[1];
 
   return (
     <div className="min-h-screen pt-24 pb-16 sm:pt-28 sm:pb-24 font-sans">
@@ -134,7 +151,7 @@ export default function ComparePage() {
                   onChange={(e) => setCustomSlugA(e.target.value)}
                   className="w-full p-3 rounded-xl bg-zinc-800 border border-white/15 text-sm text-white focus:outline-none focus:border-red-500 cursor-pointer font-sans"
                 >
-                  {ALL_SEED_ENTITIES.map((ent) => (
+                  {sortedEntities.map((ent) => (
                     <option key={`a-${ent.slug}`} value={ent.slug}>
                       {ent.name} ({ent.lifespan}) — {ent.category}
                     </option>
@@ -152,7 +169,7 @@ export default function ComparePage() {
                   onChange={(e) => setCustomSlugB(e.target.value)}
                   className="w-full p-3 rounded-xl bg-zinc-800 border border-white/15 text-sm text-white focus:outline-none focus:border-cyan-500 cursor-pointer font-sans"
                 >
-                  {ALL_SEED_ENTITIES.map((ent) => (
+                  {sortedEntities.map((ent) => (
                     <option key={`b-${ent.slug}`} value={ent.slug}>
                       {ent.name} ({ent.lifespan}) — {ent.category}
                     </option>
@@ -267,9 +284,21 @@ export default function ComparePage() {
                   </p>
                 </div>
 
-                <div className="pt-2 text-xs font-mono text-zinc-400">
-                  Industry: {selectedRivalry.category}
-                </div>
+                {allEntities.some(e => e.slug === selectedRivalry.slugB) ? (
+                  <div className="pt-2">
+                    <Link
+                      href={`/grave/${selectedRivalry.slugB}`}
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-750 text-white text-xs font-mono font-bold transition-all border border-emerald-500/30 group"
+                    >
+                      <span>Inspect {selectedRivalry.nameB} Active Registry Dossier</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="pt-2 text-xs font-mono text-zinc-400">
+                    Industry: {selectedRivalry.category} • Living Platform
+                  </div>
+                )}
               </div>
 
             </div>

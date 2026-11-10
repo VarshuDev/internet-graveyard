@@ -26,7 +26,7 @@ export const SOUND_RELICS: AudioRelic[] = [
   {
     id: 'aol-dialup',
     name: 'AOL 56k Dial-Up Handshake',
-    entitySlug: 'aol',
+    entitySlug: 'aim',
     platform: 'America Online / V.90 Modem',
     year: '1991 — 2001',
     description: 'The iconic DTMF dialing tones followed by the chaotic white-noise frequency handshake of a 56k connection.',
@@ -46,7 +46,7 @@ export const SOUND_RELICS: AudioRelic[] = [
   {
     id: 'skype-ring',
     name: 'Classic Skype Incoming Call',
-    entitySlug: 'skype',
+    entitySlug: 'skype-classic',
     platform: 'Skype 1.0 — 3.0',
     year: '2003',
     description: 'The buoyant marimba ringtone that accompanied early international peer-to-peer VoIP calls.',

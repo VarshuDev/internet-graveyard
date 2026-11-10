@@ -26,7 +26,7 @@ export default function RandomGravePage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [step, setStep] = useState<number>(1);
 
-  const fetchRandomGrave = (excludeSlug?: string) => {
+  const fetchRandomGrave = async (excludeSlug?: string) => {
     setLoading(true);
     setStep(1);
 
@@ -35,15 +35,33 @@ export default function RandomGravePage() {
       setStep(2); // Cross-referencing
     }, 450);
 
-    setTimeout(() => {
-      setStep(3); // Grave found
-      const available = excludeSlug
-        ? ALL_SEED_ENTITIES.filter(e => e.slug !== excludeSlug)
-        : ALL_SEED_ENTITIES;
-      const selected = available[Math.floor(Math.random() * available.length)];
-      setCurrentGrave(selected);
-      setLoading(false);
-    }, 1100);
+    try {
+      const res = await fetch(`/api/random${excludeSlug ? `?exclude=${encodeURIComponent(excludeSlug)}` : ''}`);
+      const data = await res.json();
+      setTimeout(() => {
+        setStep(3); // Grave found
+        if (data && data.entity) {
+          setCurrentGrave(data.entity);
+        } else {
+          const available = excludeSlug
+            ? ALL_SEED_ENTITIES.filter(e => e.slug !== excludeSlug)
+            : ALL_SEED_ENTITIES;
+          const selected = available[Math.floor(Math.random() * available.length)];
+          setCurrentGrave(selected);
+        }
+        setLoading(false);
+      }, 900);
+    } catch {
+      setTimeout(() => {
+        setStep(3);
+        const available = excludeSlug
+          ? ALL_SEED_ENTITIES.filter(e => e.slug !== excludeSlug)
+          : ALL_SEED_ENTITIES;
+        const selected = available[Math.floor(Math.random() * available.length)];
+        setCurrentGrave(selected);
+        setLoading(false);
+      }, 900);
+    }
   };
 
   useEffect(() => {

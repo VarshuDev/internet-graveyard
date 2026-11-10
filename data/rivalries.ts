@@ -46,7 +46,7 @@ export const CURATED_RIVALRIES: RivalryItem[] = [
   },
   {
     id: 'myspace-vs-facebook',
-    slugA: 'myspace',
+    slugA: 'myspace-classic',
     slugB: 'facebook',
     nameA: 'MySpace',
     nameB: 'Facebook',

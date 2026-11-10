@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { StatusBadge } from '@/components/StatusBadge';
 import { EntityLogo } from '@/components/EntityLogo';
@@ -33,17 +33,29 @@ const CATEGORIES: (GraveCategory | 'ALL')[] = [
 ];
 
 export default function TimelinePage() {
+  const [allEntities, setAllEntities] = useState<GraveEntity[]>(ALL_SEED_ENTITIES);
   const [selectedCategory, setSelectedCategory] = useState<GraveCategory | 'ALL'>('ALL');
   const [activeDecade, setActiveDecade] = useState<string>('ALL');
 
+  useEffect(() => {
+    fetch('/api/entities')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setAllEntities(data);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   // Filter entities
   const filteredEntities = useMemo(() => {
-    let list = ALL_SEED_ENTITIES;
+    let list = allEntities;
     if (selectedCategory !== 'ALL') {
       list = list.filter(e => e.category === selectedCategory);
     }
     return list;
-  }, [selectedCategory]);
+  }, [allEntities, selectedCategory]);
 
   // Group entities by decade and year
   const timelineGroups = useMemo(() => {

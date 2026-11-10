@@ -25,11 +25,24 @@ import { cn } from '@/lib/utils';
 export const CommandPalette: React.FC = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [allEntities, setAllEntities] = useState<GraveEntity[]>(ALL_SEED_ENTITIES);
   const [query, setQuery] = useState('');
   const [selectedStatus, setSelectedStatus] = useState<'ALL' | 'CONFIRMED_DEAD' | 'ACTIVE' | 'AT_RISK' | 'ZOMBIE'>('ALL');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+
+  // Fetch full live entity catalog
+  useEffect(() => {
+    fetch('/api/entities')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setAllEntities(data);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   // Global Keyboard listener for Cmd+K / Ctrl+K
   useEffect(() => {
@@ -67,7 +80,7 @@ export const CommandPalette: React.FC = () => {
   // Filter entities
   const filteredResults = useMemo(() => {
     const q = query.toLowerCase().trim();
-    let results = ALL_SEED_ENTITIES;
+    let results = allEntities;
 
     if (selectedStatus !== 'ALL') {
       results = results.filter((e) => e.status.toUpperCase() === selectedStatus);

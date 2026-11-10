@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { ALL_SEED_ENTITIES } from '@/data/seed-entities-batch2';
+import { GraveEntity } from '@/types/graveyard';
 import { EntityLogo } from '@/components/EntityLogo';
 import { StatusBadge } from '@/components/StatusBadge';
 import { 
@@ -26,19 +27,31 @@ import {
 import { cn } from '@/lib/utils';
 
 export default function ExportPage() {
+  const [entities, setEntities] = useState<GraveEntity[]>(ALL_SEED_ENTITIES);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [copiedBibtex, setCopiedBibtex] = useState(false);
   const [copiedCurl, setCopiedCurl] = useState(false);
   const [isDownloadingJson, setIsDownloadingJson] = useState(false);
 
-  const categories = useMemo(() => {
-    const cats = new Set(ALL_SEED_ENTITIES.map(e => e.category));
-    return ['All', ...Array.from(cats)];
+  useEffect(() => {
+    fetch('/api/entities')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setEntities(data);
+        }
+      })
+      .catch(() => {});
   }, []);
 
+  const categories = useMemo(() => {
+    const cats = new Set(entities.map(e => e.category));
+    return ['All', ...Array.from(cats)];
+  }, [entities]);
+
   const filteredEntities = useMemo(() => {
-    return ALL_SEED_ENTITIES.filter(e => {
+    return entities.filter(e => {
       const matchesCat = selectedCategory === 'All' || e.category === selectedCategory;
       if (!matchesCat) return false;
 
@@ -52,31 +65,30 @@ export default function ExportPage() {
         e.cause_of_death_summary.toLowerCase().includes(q)
       );
     });
-  }, [selectedCategory, searchQuery]);
+  }, [entities, selectedCategory, searchQuery]);
 
   // Compute deterministic SHA-256 style hash sum of the entities
   const datasetChecksum = useMemo(() => {
     let hash = 0;
-    const sample = ALL_SEED_ENTITIES.map(e => e.id + e.slug).join('');
+    const sample = entities.map(e => e.id + e.slug).join('');
     for (let i = 0; i < sample.length; i++) {
       hash = ((hash << 5) - hash) + sample.charCodeAt(i);
       hash |= 0;
     }
     return `sha256-igaf${Math.abs(hash).toString(16).padStart(8, '0')}7f3c92e10a88b45`;
-  }, []);
+  }, [entities]);
 
   const handleDownloadJSON = () => {
     setIsDownloadingJson(true);
     try {
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(ALL_SEED_ENTITIES, null, 2));
       const downloadAnchor = document.createElement('a');
-      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("href", "/api/export/json");
       downloadAnchor.setAttribute("download", `internet-graveyard-full-dataset-${new Date().toISOString().slice(0, 10)}.json`);
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
     } finally {
-      setIsDownloadingJson(false);
+      setTimeout(() => setIsDownloadingJson(false), 800);
     }
   };
 
@@ -87,7 +99,7 @@ export default function ExportPage() {
   year={2026},
   publisher={Internet Graveyard Archives},
   howpublished={\\url{https://internet-graveyard.org}},
-  note={Open Access Historical Registry of ${ALL_SEED_ENTITIES.length} Defunct Platforms}
+  note={Open Access Historical Registry of ${entities.length} Defunct Platforms}
 }`;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(bibtex);
@@ -126,7 +138,7 @@ export default function ExportPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-zinc-300 font-sans leading-relaxed">
-                Open-access research datasets, forensic inquest reports, and raw data dumps covering {ALL_SEED_ENTITIES.length} deceased tech relics for digital historians, researchers, and archivists.
+                Open-access research datasets, forensic inquest reports, and raw data dumps covering {entities.length.toLocaleString()} deceased tech relics for digital historians, researchers, and archivists.
               </p>
             </div>
 
@@ -134,7 +146,7 @@ export default function ExportPage() {
             <div className="flex flex-wrap items-center gap-6 text-xs font-mono bg-zinc-950/90 p-5 rounded-2xl border border-white/10 shrink-0">
               <div className="space-y-0.5">
                 <div className="text-zinc-500 uppercase">Total Entities</div>
-                <div className="text-2xl font-bold text-white">{ALL_SEED_ENTITIES.length} Records</div>
+                <div className="text-2xl font-bold text-white">{entities.length.toLocaleString()} Records</div>
               </div>
               <div className="w-px h-10 bg-white/10 hidden sm:block" />
               <div className="space-y-0.5">
@@ -375,7 +387,7 @@ export default function ExportPage() {
   year={2026},
   publisher={Internet Graveyard Archives},
   howpublished={\\url{https://internet-graveyard.org}},
-  note={Open Access Historical Registry of ${ALL_SEED_ENTITIES.length} Defunct Platforms}
+  note={Open Access Historical Registry of ${entities.length} Defunct Platforms}
 }`}
           </pre>
         </section>

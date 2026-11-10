@@ -27,6 +27,7 @@ import {
   Heart, 
   Send, 
   CheckCircle2, 
+  Check, 
   Sparkles,
   Layers,
   ArrowUpRight,
@@ -57,6 +58,7 @@ export const MemorialClient: React.FC<MemorialClientProps> = ({
   const [yearsUsed, setYearsUsed] = useState('');
   const [submittingEpitaph, setSubmittingEpitaph] = useState(false);
   const [epitaphSuccess, setEpitaphSuccess] = useState(false);
+  const [copiedShare, setCopiedShare] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   const handleEpitaphSubmit = async (e: React.FormEvent) => {
@@ -93,9 +95,10 @@ export const MemorialClient: React.FC<MemorialClientProps> = ({
   };
 
   const handleShare = () => {
-    if (navigator.clipboard) {
+    if (typeof window !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(window.location.href);
-      alert('Memorial link copied to clipboard!');
+      setCopiedShare(true);
+      setTimeout(() => setCopiedShare(false), 2500);
     }
   };
 
@@ -195,10 +198,20 @@ export const MemorialClient: React.FC<MemorialClientProps> = ({
               />
               <button
                 onClick={handleShare}
-                className="p-3 rounded-2xl bg-zinc-850 hover:bg-zinc-800 border border-white/15 text-zinc-200 hover:text-white transition-colors cursor-pointer shadow-md shrink-0 flex items-center justify-center"
-                title="Share Memorial"
+                className={cn(
+                  "p-3 rounded-2xl border transition-all cursor-pointer shadow-md shrink-0 flex items-center justify-center relative",
+                  copiedShare 
+                    ? "bg-emerald-950/60 border-emerald-500/50 text-emerald-400" 
+                    : "bg-zinc-850 hover:bg-zinc-800 border-white/15 text-zinc-200 hover:text-white"
+                )}
+                title={copiedShare ? "Link copied to clipboard!" : "Share Memorial"}
+                aria-label={copiedShare ? "Link copied to clipboard" : "Share memorial link"}
               >
-                <Share2 className="w-5 h-5 shrink-0" />
+                {copiedShare ? (
+                  <Check className="w-5 h-5 text-emerald-400 shrink-0" />
+                ) : (
+                  <Share2 className="w-5 h-5 shrink-0" />
+                )}
               </button>
             </div>
           </div>
