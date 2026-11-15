@@ -15,6 +15,7 @@ import { EntityLogo } from '@/components/EntityLogo';
 import { DigitalGhostTerminal } from '@/components/DigitalGhostTerminal';
 import { EulogyModal } from '@/components/EulogyModal';
 import { MemorialGuestbook } from '@/components/MemorialGuestbook';
+import { GardenButton } from '@/components/GardenButton';
 import { 
   Globe, 
   Calendar, 
@@ -195,6 +196,13 @@ export const MemorialClient: React.FC<MemorialClientProps> = ({
                 slug={entity.slug}
                 initialCount={entity.candle_count}
                 entityName={entity.name}
+              />
+              <GardenButton
+                slug={entity.slug}
+                entityName={entity.name}
+                size="md"
+                showLabel={true}
+                className="rounded-2xl px-4 py-2.5"
               />
               <button
                 onClick={handleShare}

@@ -4,6 +4,7 @@ import { graveyardDb } from '@/lib/db';
 import { getLastAutomationReport } from '@/lib/automation/cronEngine';
 import { StatusBadge } from '@/components/StatusBadge';
 import { EntityLogo } from '@/components/EntityLogo';
+import { SunsetCountdown } from '@/components/SunsetCountdown';
 import { 
   AlertTriangle, 
   ShieldAlert, 
@@ -42,6 +43,9 @@ export default function DyingNowPage() {
           The early warning detection system for internet products showing terminal symptoms of abandonment, infrastructure neglect, developer inactivity, and pending sunset.
         </p>
       </div>
+
+      {/* Live Sunset Deathwatch Countdown Chamber */}
+      <SunsetCountdown />
 
       {/* Automated Inquest Telemetry Card */}
       <div className="p-5 rounded-2xl bg-zinc-950 border border-emerald-500/30 shadow-[0_0_25px_rgba(16,185,129,0.1)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono">

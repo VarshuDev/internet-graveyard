@@ -28,10 +28,13 @@ import {
   History,
   ChevronDown,
   Layers,
-  ArrowRight
+  ArrowRight,
+  Heart,
+  ShieldAlert
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { soundFx } from '@/lib/audio/soundFx';
+import { gardenStore } from '@/lib/storage/gardenStore';
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -46,10 +49,22 @@ export const Navbar: React.FC = () => {
     zombie_services: 36,
     at_risk: 10
   });
+  const [gardenCount, setGardenCount] = useState<number>(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMuted(soundFx.getMuted());
+    setGardenCount(gardenStore.getGardenSlugs().length);
+
+    const handleGardenUpdate = (e: any) => {
+      if (e?.detail?.count !== undefined) {
+        setGardenCount(e.detail.count);
+      } else {
+        setGardenCount(gardenStore.getGardenSlugs().length);
+      }
+    };
+    window.addEventListener('garden-updated', handleGardenUpdate);
+    return () => window.removeEventListener('garden-updated', handleGardenUpdate);
   }, []);
 
   // Fetch live stats dynamically on mount and route changes
@@ -129,11 +144,13 @@ export const Navbar: React.FC = () => {
     { href: '/time-warp', label: 'Time Warp', icon: History, isNew: true },
     { href: '/grounds', label: 'Cemetery Map', icon: Landmark, hideOnMd: true },
     { href: '/lookup', label: 'Vital Signs', icon: Activity },
-    { href: '/dying-now', label: 'Dying Now', icon: AlertTriangle, highlight: true }
+    { href: '/dying-now', label: 'Dying Now', icon: AlertTriangle, highlight: true },
+    { href: '/my-garden', label: 'My Garden', icon: Heart, gardenBadge: true }
   ];
 
   // Secondary labs & archives accessible via "More ▾" dropdown on desktop
   const secondaryLinks = [
+    { href: '/inquests/cases', label: 'Cold Case Inquests', desc: 'Forensic Files & Witness Interrogations', icon: ShieldAlert },
     { href: '/grounds', label: 'Cemetery Grounds', desc: '3D Isometric Cyber-Necropolis', icon: Landmark },
     { href: '/compare', label: 'Autopsy Rivals', desc: 'Pioneer vs. Successor Post-Mortems', icon: Scale },
     { href: '/sounds', label: 'Sound Vault', desc: 'Synthesized 56k & Relic Audio', icon: Volume2 },
@@ -260,12 +277,18 @@ export const Navbar: React.FC = () => {
                 <Icon className={cn('w-3.5 h-3.5 shrink-0', 
                   link.highlight ? 'text-amber-400' : 
                   link.isNew ? 'text-emerald-400' : 
+                  link.gardenBadge ? 'text-rose-400' :
                   'text-zinc-400'
                 )} />
                 <span>{link.label}</span>
                 {link.isNew && (
                   <span className="ml-0.5 px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-400 text-[9px] font-mono font-bold uppercase tracking-wider">
                     NEW
+                  </span>
+                )}
+                {link.gardenBadge && gardenCount > 0 && (
+                  <span className="ml-0.5 px-1.5 py-0.2 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[9px] font-mono font-bold">
+                    {gardenCount}
                   </span>
                 )}
               </Link>
@@ -409,9 +432,11 @@ export const Navbar: React.FC = () => {
             <div className="grid grid-cols-2 gap-2">
               {[
                 { href: '/explore', label: 'Explore All', icon: Database, color: 'text-blue-400' },
+                { href: '/my-garden', label: 'My Garden', icon: Heart, color: 'text-rose-400', badge: gardenCount > 0 ? `${gardenCount}` : undefined },
                 { href: '/time-warp', label: 'Time Warp', icon: History, color: 'text-emerald-400', badge: 'NEW' },
                 { href: '/grounds', label: 'Cemetery Map', icon: Landmark, color: 'text-purple-400' },
-                { href: '/dying-now', label: 'Dying Now', icon: AlertTriangle, color: 'text-amber-400', badge: 'WATCH' }
+                { href: '/dying-now', label: 'Dying Now', icon: AlertTriangle, color: 'text-amber-400', badge: 'WATCH' },
+                { href: '/lookup', label: 'Vital Signs', icon: Activity, color: 'text-cyan-400' }
               ].map((item) => {
                 const Icon = item.icon;
                 const isActive = pathname === item.href;
@@ -452,11 +477,12 @@ export const Navbar: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { href: '/lookup', label: 'Vital Signs', icon: Activity },
+                { href: '/inquests/cases', label: 'Cold Cases', icon: ShieldAlert },
                 { href: '/compare', label: 'Autopsy Rivals', icon: Scale },
                 { href: '/sounds', label: 'Sound Vault', icon: Volume2 },
                 { href: '/gazette', label: 'Sunset Gazette', icon: Newspaper },
-                { href: '/timeline', label: 'Decade History', icon: Clock }
+                { href: '/timeline', label: 'Decade History', icon: Clock },
+                { href: '/export', label: 'Open Data Hub', icon: ArrowDownToLine }
               ].map((item) => {
                 const Icon = item.icon;
                 const isActive = pathname === item.href;
@@ -486,26 +512,9 @@ export const Navbar: React.FC = () => {
           {/* Section 3: Community & Archives */}
           <div className="space-y-1.5">
             <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold px-1">
-              Operations & Data
+              Operations & Contribution
             </div>
-            <div className="grid grid-cols-2 gap-2">
-              <Link
-                href="/export"
-                onClick={() => {
-                  soundFx.playClick(750);
-                  setMobileMenuOpen(false);
-                }}
-                className={cn(
-                  'flex items-center gap-2 p-2.5 rounded-xl transition-all min-h-[44px] border',
-                  pathname === '/export'
-                    ? 'bg-white/15 text-white font-bold border-white/20'
-                    : 'bg-zinc-900/60 border-white/10 text-zinc-300 hover:text-white hover:bg-zinc-850'
-                )}
-              >
-                <ArrowDownToLine className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span className="text-xs font-medium truncate">Open Data Hub</span>
-              </Link>
-
+            <div>
               <Link
                 href="/submit"
                 onClick={() => {
@@ -513,14 +522,14 @@ export const Navbar: React.FC = () => {
                   setMobileMenuOpen(false);
                 }}
                 className={cn(
-                  'flex items-center gap-2 p-2.5 rounded-xl transition-all min-h-[44px] border',
+                  'w-full flex items-center justify-center gap-2 p-3 rounded-xl transition-all min-h-[44px] border font-semibold text-xs',
                   pathname === '/submit'
-                    ? 'bg-white/15 text-white font-bold border-white/20'
-                    : 'bg-zinc-900/60 border-white/10 text-zinc-300 hover:text-white hover:bg-zinc-850'
+                    ? 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50'
+                    : 'bg-zinc-900/80 border-white/10 text-emerald-400 hover:text-white hover:bg-zinc-850'
                 )}
               >
-                <PlusCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span className="text-xs font-medium truncate">Submit Relic</span>
+                <PlusCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Submit a Fallen Relic to Archive</span>
               </Link>
             </div>
           </div>

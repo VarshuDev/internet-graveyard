@@ -17,6 +17,7 @@ import {
   Info
 } from 'lucide-react';
 import { SOUND_RELICS, relicAudio, AudioRelic } from '@/lib/audio/soundArchive';
+import { AmbientRadioPlayer } from '@/components/AmbientRadioPlayer';
 import { cn } from '@/lib/utils';
 
 export default function SoundVaultPage() {
@@ -97,8 +98,20 @@ export default function SoundVaultPage() {
           </div>
         </div>
 
+        {/* Procedural Ambient Cyberdeck Radio */}
+        <AmbientRadioPlayer />
+
         {/* Sound Relics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-bold font-serif text-white tracking-tight">
+              Individual Acoustic Relic Vault
+            </h3>
+            <span className="text-xs font-mono text-zinc-400">
+              {SOUND_RELICS.length} Artifacts Available
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SOUND_RELICS.map((relic) => {
             const isPlaying = playingId === relic.id;
 
@@ -201,6 +214,7 @@ export default function SoundVaultPage() {
             );
           })}
         </div>
+      </div>
 
       </div>
     </div>

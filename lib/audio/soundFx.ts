@@ -203,8 +203,30 @@ class SoundFxEngine {
     }
   }
 
-  public playChime(): void {
-    this.playTelemetry();
+  public playChime(freq = 587.33): void {
+    if (this.isMuted) return;
+    const ctx = this.initContext();
+    if (!ctx) return;
+
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      osc.frequency.setValueAtTime(freq * 1.5, ctx.currentTime + 0.08);
+
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.3);
+    } catch {
+      // fallback
+    }
   }
 }
 

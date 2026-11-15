@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { GraveEntity } from '@/types/graveyard';
 import { StatusBadge } from './StatusBadge';
 import { EntityLogo } from './EntityLogo';
+import { GardenButton } from './GardenButton';
 import { ArrowRight, Flame, Archive, Eye, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { soundFx } from '@/lib/audio/soundFx';
@@ -152,6 +153,15 @@ export const GraveCard: React.FC<GraveCardProps> = ({
             <Flame className={cn("w-3.5 h-3.5 shrink-0 transition-transform", litRecently && "animate-bounce text-amber-300")} />
             <span className="tabular-nums">{candles}</span>
           </button>
+
+          {/* Quick Consecrate to My Garden */}
+          <GardenButton 
+            slug={entity.slug} 
+            entityName={entity.name} 
+            size="sm" 
+            showLabel={false} 
+            className="p-1.5 rounded-lg border-white/10 hover:border-rose-500/40"
+          />
 
           {/* Quick Inspect Dossier Button */}
           {onQuickInspect && (

@@ -32,6 +32,16 @@ export const Footer: React.FC = () => {
             <h4 className="text-sm font-bold uppercase tracking-wider text-white font-mono">Archives</h4>
             <ul className="space-y-2.5 text-sm">
               <li>
+                <Link href="/my-garden" className="text-rose-400 font-medium hover:text-rose-300 transition-colors">
+                  My Memorial Garden (/my-garden)
+                </Link>
+              </li>
+              <li>
+                <Link href="/inquests/cases" className="text-red-400 font-medium hover:text-red-300 transition-colors">
+                  Cold Case Inquests (/inquests/cases)
+                </Link>
+              </li>
+              <li>
                 <Link href="/explore" className="text-zinc-300 hover:text-white transition-colors">
                   All Buried Entities
                 </Link>
