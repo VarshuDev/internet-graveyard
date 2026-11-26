@@ -16,6 +16,8 @@ import { DigitalGhostTerminal } from '@/components/DigitalGhostTerminal';
 import { EulogyModal } from '@/components/EulogyModal';
 import { MemorialGuestbook } from '@/components/MemorialGuestbook';
 import { GardenButton } from '@/components/GardenButton';
+import { COLD_CASES } from '@/data/cold-cases';
+import { CURATED_RIVALRIES } from '@/data/rivalries';
 import { 
   Globe, 
   Calendar, 
@@ -36,7 +38,9 @@ import {
   Activity,
   FileText,
   Bell,
-  Feather
+  Feather,
+  Scale,
+  FileSearch
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { soundFx } from '@/lib/audio/soundFx';
@@ -61,6 +65,9 @@ export const MemorialClient: React.FC<MemorialClientProps> = ({
   const [epitaphSuccess, setEpitaphSuccess] = useState(false);
   const [copiedShare, setCopiedShare] = useState(false);
   const [loaded, setLoaded] = useState(false);
+
+  const matchingColdCase = COLD_CASES.find(c => c.slug === entity.slug);
+  const matchingRivalry = CURATED_RIVALRIES.find(r => r.slugA === entity.slug || r.slugB === entity.slug);
 
   const handleEpitaphSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -240,6 +247,72 @@ export const MemorialClient: React.FC<MemorialClientProps> = ({
             </div>
           </div>
         </section>
+
+        {/* CROSS-FORENSIC CONNECTIONS: COLD CASE INQUEST & AUTOPSY RIVALS */}
+        {(matchingColdCase || matchingRivalry) && (
+          <div className="space-y-4">
+            {matchingColdCase && (
+              <div className="rounded-2xl border-2 border-red-500/50 bg-gradient-to-r from-red-950/80 via-zinc-950 to-zinc-900 p-5 sm:p-6 shadow-[0_0_30px_rgba(239,68,68,0.2)] flex flex-col md:flex-row items-start md:items-center justify-between gap-5 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="space-y-2 relative z-10 min-w-0 flex-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="px-2.5 py-0.5 rounded bg-red-600 text-white font-mono text-[11px] font-black tracking-widest uppercase animate-pulse">
+                      DECLASSIFIED INQUEST DOSSIER
+                    </span>
+                    <span className="text-xs font-mono text-zinc-400">FILE #{matchingColdCase.id.toUpperCase()}</span>
+                    <span className="text-zinc-600">•</span>
+                    <span className="text-xs font-mono text-red-300 font-semibold">{matchingColdCase.classificationStatus.replace('_', ' ')}</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-serif font-black text-white">
+                    {matchingColdCase.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-300 font-sans max-w-2xl leading-relaxed">
+                    {matchingColdCase.subtitle}
+                  </p>
+                  <div className="flex items-center gap-2 pt-1 flex-wrap text-xs font-mono text-zinc-400">
+                    <span className="font-bold text-zinc-300">Prime Suspects:</span>
+                    <span>{matchingColdCase.suspects.slice(0, 3).join(', ')}</span>
+                  </div>
+                </div>
+                <Link
+                  href={`/inquests/cases/${matchingColdCase.id}`}
+                  className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-sans text-xs sm:text-sm font-bold flex items-center gap-2 shrink-0 shadow-xl hover:scale-105 transition-all relative z-10 cursor-pointer"
+                >
+                  <FileSearch className="w-4 h-4" />
+                  <span>Exhume Cold Case</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            )}
+
+            {matchingRivalry && (
+              <div className="rounded-2xl border border-cyan-500/40 bg-cyan-950/25 p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 relative overflow-hidden">
+                <div className="space-y-1.5 min-w-0 flex-1">
+                  <div className="flex items-center gap-2 text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
+                    <Scale className="w-4 h-4" />
+                    <span>Head-to-Head Autopsy Rivalry</span>
+                    <span className="text-zinc-600">•</span>
+                    <span className="text-zinc-400">{matchingRivalry.category}</span>
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-serif font-bold text-white">
+                    {matchingRivalry.nameA} vs {matchingRivalry.nameB}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-zinc-300 font-sans max-w-2xl leading-relaxed">
+                    {matchingRivalry.postMortemVerdict}
+                  </p>
+                </div>
+                <Link
+                  href={`/compare?rivalry=${matchingRivalry.id}`}
+                  className="px-5 py-2.5 rounded-xl bg-cyan-950 hover:bg-cyan-900/80 text-cyan-200 hover:text-white border border-cyan-500/40 font-mono text-xs sm:text-sm font-bold flex items-center gap-2 shrink-0 transition-all hover:scale-105 shadow-md cursor-pointer"
+                >
+                  <Scale className="w-4 h-4 text-cyan-400" />
+                  <span>Inspect Rivalry Verdict</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* 3. MAIN MEMORIAL DOSSIER (GRID) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 font-sans">

@@ -38,8 +38,9 @@ export default function ExportPage() {
     fetch('/api/entities')
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setEntities(data);
+        const list = Array.isArray(data) ? data : (data?.entities || []);
+        if (list.length > 0) {
+          setEntities(list);
         }
       })
       .catch(() => {});

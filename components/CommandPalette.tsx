@@ -18,7 +18,12 @@ import {
   Sparkles,
   CornerDownLeft,
   Skull,
-  Activity
+  Activity,
+  ShieldAlert,
+  Volume2,
+  Heart,
+  Landmark,
+  Scale
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -37,8 +42,9 @@ export const CommandPalette: React.FC = () => {
     fetch('/api/entities')
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setAllEntities(data);
+        const list = Array.isArray(data) ? data : (data?.entities || []);
+        if (list.length > 0) {
+          setAllEntities(list);
         }
       })
       .catch(() => {});
@@ -132,6 +138,24 @@ export const CommandPalette: React.FC = () => {
     router.push(`/grave/${entity.slug}`);
   };
 
+  const forensicPortals = [
+    { href: '/inquests/cases', label: 'Cold Case Inquests', desc: 'Classified murder dossiers & witness interrogations', icon: ShieldAlert, color: 'text-red-400' },
+    { href: '/my-garden', label: 'My Memorial Garden', desc: 'Your private crypt, nostalgia archetypes & card export', icon: Heart, color: 'text-rose-400' },
+    { href: '/sounds', label: 'Necropolis Ambient Radio', desc: '5-channel procedural synthesizer (CRT, Dialup, Rain)', icon: Volume2, color: 'text-emerald-400' },
+    { href: '/dying-now', label: 'Sunset Countdown Clocks', desc: 'Live execution deathwatch & calendar invites (.ics)', icon: Clock, color: 'text-amber-400' },
+    { href: '/grounds', label: '3D Cemetery Grounds Map', desc: 'Interactive isometric cyber-necropolis', icon: Landmark, color: 'text-purple-400' },
+    { href: '/compare', label: 'Autopsy Rivals', desc: 'Vine vs TikTok, MySpace vs Facebook, Napster vs Spotify', icon: Scale, color: 'text-cyan-400' },
+  ];
+
+  const matchedPortals = useMemo(() => {
+    const q = query.toLowerCase().trim();
+    if (!q) return forensicPortals.slice(0, 4);
+    return forensicPortals.filter(p => 
+      p.label.toLowerCase().includes(q) || 
+      p.desc.toLowerCase().includes(q)
+    );
+  }, [query]);
+
   if (!isOpen) return null;
 
   return (
@@ -219,7 +243,44 @@ export const CommandPalette: React.FC = () => {
         </div>
 
         {/* Results List */}
-        <div ref={listRef} className="max-h-[360px] overflow-y-auto divide-y divide-white/5 p-1 bg-zinc-950/95 font-sans">
+        <div ref={listRef} className="max-h-[380px] overflow-y-auto divide-y divide-white/5 p-1 bg-zinc-950/95 font-sans">
+          {/* Quick Forensic Portals */}
+          {matchedPortals.length > 0 && (
+            <div className="p-2 space-y-1">
+              <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold px-2 mb-1">
+                {query ? 'Matching Forensic Gateways' : 'Specialized Forensic Laboratories'}
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                {matchedPortals.map((portal) => {
+                  const Icon = portal.icon;
+                  return (
+                    <div
+                      key={portal.href}
+                      onClick={() => {
+                        soundFx.playTelemetry();
+                        setIsOpen(false);
+                        router.push(portal.href);
+                      }}
+                      className="p-2 rounded-xl bg-zinc-900/70 hover:bg-zinc-850 border border-white/10 hover:border-white/20 transition-all cursor-pointer flex items-center gap-2.5 group"
+                    >
+                      <div className="p-1.5 rounded-lg bg-zinc-950 border border-white/10 group-hover:scale-110 transition-transform shrink-0">
+                        <Icon className={cn("w-3.5 h-3.5", portal.color)} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-xs text-white group-hover:text-amber-300 truncate font-serif">
+                          {portal.label}
+                        </div>
+                        <div className="text-[10px] text-zinc-400 font-sans truncate">
+                          {portal.desc}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {filteredResults.length === 0 ? (
             <div className="py-12 text-center text-zinc-500 space-y-2 font-mono">
               <Skull className="w-8 h-8 mx-auto text-zinc-600" />

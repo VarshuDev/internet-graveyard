@@ -38,8 +38,9 @@ export default function ComparePage() {
     fetch('/api/entities')
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setAllEntities(data);
+        const list = Array.isArray(data) ? data : (data?.entities || []);
+        if (list.length > 0) {
+          setAllEntities(list);
         }
       })
       .catch(() => {});

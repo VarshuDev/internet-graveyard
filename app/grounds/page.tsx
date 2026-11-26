@@ -120,11 +120,12 @@ export default function GroundsPage() {
     fetch('/api/entities')
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setAllEntities(data);
+        const list = Array.isArray(data) ? data : (data?.entities || []);
+        if (list.length > 0) {
+          setAllEntities(list);
           setCandleCounts(prev => {
             const next = { ...prev };
-            data.forEach((e: GraveEntity) => {
+            list.forEach((e: GraveEntity) => {
               if (next[e.slug] === undefined) {
                 next[e.slug] = e.candle_count || 120;
               }

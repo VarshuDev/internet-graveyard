@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { graveyardDb } from '@/lib/db';
+import { COLD_CASES } from '@/data/cold-cases';
 import { GraveCard } from '@/components/GraveCard';
 import { StatusBadge } from '@/components/StatusBadge';
 import { EntityLogo } from '@/components/EntityLogo';
 import { TodayInHistoryBanner } from '@/components/TodayInHistoryBanner';
 import { RecentUpdatesWing } from '@/components/RecentUpdatesWing';
+import { SunsetCountdown } from '@/components/SunsetCountdown';
 import { 
   Search, 
   Shuffle, 
@@ -25,7 +27,11 @@ import {
   Layers,
   ArrowUpRight,
   ShieldCheck,
-  Sparkles
+  Sparkles,
+  FileSearch,
+  Heart,
+  History,
+  Timer
 } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
@@ -165,15 +171,31 @@ export default function HomePage() {
           <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 font-sans text-xs sm:text-sm font-bold">
             <Link
               href="/lookup"
-              className="inline-flex items-center justify-center h-11 px-5 rounded-xl bg-red-950/60 hover:bg-red-900/70 text-red-300 hover:text-white border border-red-500/50 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              className="inline-flex items-center justify-center h-11 px-4 sm:px-5 rounded-xl bg-red-950/60 hover:bg-red-900/70 text-red-300 hover:text-white border border-red-500/50 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
             >
               <Activity className="w-4 h-4 text-red-400 animate-pulse shrink-0" />
               <span>Vital Signs Lab</span>
             </Link>
 
             <Link
+              href="/inquests/cases"
+              className="inline-flex items-center justify-center h-11 px-4 sm:px-5 rounded-xl bg-amber-950/60 hover:bg-amber-900/70 text-amber-300 hover:text-white border border-amber-500/40 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            >
+              <FileSearch className="w-4 h-4 text-amber-400 shrink-0" />
+              <span>Cold Case Inquests</span>
+            </Link>
+
+            <Link
+              href="/my-garden"
+              className="inline-flex items-center justify-center h-11 px-4 sm:px-5 rounded-xl bg-purple-950/60 hover:bg-purple-900/70 text-purple-300 hover:text-white border border-purple-500/40 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            >
+              <Heart className="w-4 h-4 text-purple-400 shrink-0" />
+              <span>My Memorial Garden</span>
+            </Link>
+
+            <Link
               href="/explore"
-              className="inline-flex items-center justify-center h-11 px-5 rounded-xl bg-white/12 hover:bg-white/18 text-white border border-white/20 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              className="inline-flex items-center justify-center h-11 px-4 sm:px-5 rounded-xl bg-white/12 hover:bg-white/18 text-white border border-white/20 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
             >
               <Compass className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>Explore {totalCount} Graves</span>
@@ -181,18 +203,18 @@ export default function HomePage() {
 
             <Link
               href="/grounds"
-              className="inline-flex items-center justify-center h-11 px-5 rounded-xl bg-zinc-900/90 hover:bg-zinc-850 text-zinc-200 hover:text-white border border-white/15 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              className="inline-flex items-center justify-center h-11 px-4 sm:px-5 rounded-xl bg-zinc-900/90 hover:bg-zinc-850 text-zinc-200 hover:text-white border border-white/15 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
             >
               <Landmark className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>3D Necropolis Grounds</span>
+              <span>3D Grounds</span>
             </Link>
 
             <Link
               href="/random"
-              className="inline-flex items-center justify-center h-11 px-5 rounded-xl bg-zinc-900/90 hover:bg-zinc-850 text-zinc-200 hover:text-white border border-white/15 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              className="inline-flex items-center justify-center h-11 px-4 sm:px-5 rounded-xl bg-zinc-900/90 hover:bg-zinc-850 text-zinc-200 hover:text-white border border-white/15 transition-all shadow-md gap-2 shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-500/60"
             >
               <Shuffle className="w-4 h-4 text-purple-400 shrink-0" />
-              <span>Random Memorial</span>
+              <span>Random</span>
             </Link>
           </div>
         </div>
@@ -381,12 +403,27 @@ export default function HomePage() {
       </section>
 
       {/* 5. ARCHAEOLOGICAL LABORATORIES & GATEWAYS */}
-      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 font-sans">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {/* 1. Cemetery Map */}
+      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 font-sans space-y-6">
+        <div className="border-b border-white/[0.08] pb-4 flex flex-col md:flex-row md:items-end justify-between gap-2">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-400 tracking-wider uppercase mb-1">
+              <Layers className="w-4 h-4" />
+              <span>Forensic Archival Research Wings</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-serif font-black text-white tracking-tight">
+              Archaeological Laboratories & Portals
+            </h2>
+            <p className="text-sm text-zinc-400 mt-1">
+              Eight specialized diagnostic divisions and historical interactive portals to investigate the vanished web.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {/* 1. Cemetery Grounds */}
           <Link
             href="/grounds"
-            className="p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-red-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            className="p-5 sm:p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-red-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
           >
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-red-950/60 border border-red-500/40 flex items-center justify-center text-red-400 group-hover:scale-110 transition-transform">
@@ -407,10 +444,34 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* 2. Sound Vault */}
+          {/* 2. Cold Case Inquests */}
+          <Link
+            href="/inquests/cases"
+            className="p-5 sm:p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
+          >
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-950/60 border border-amber-500/40 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                <FileSearch className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors font-serif">
+                  Cold Case Inquests
+                </h3>
+                <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
+                  Corporate murder dossiers. Exhume depositions and vote in grand jury verdicts on Vine, Flash, and Reader.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 group-hover:translate-x-1 transition-transform">
+              <span>Exhume Cold Cases</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
+          </Link>
+
+          {/* 3. Soundboard & Ambient Radio */}
           <Link
             href="/sounds"
-            className="p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-emerald-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            className="p-5 sm:p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-emerald-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
           >
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-950/60 border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
@@ -418,23 +479,95 @@ export default function HomePage() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors font-serif">
-                  Sound Vault
+                  Sound Vault & Radio
                 </h3>
                 <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
-                  Acoustic fossils. Synthesize the ICQ Uh-Oh!, AOL 56k dial-up screech, and MSN Messenger nudge.
+                  Acoustic fossils. Synthesize the ICQ Uh-Oh!, AOL 56k dial-up screech, and procedural ambient drone.
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400 group-hover:translate-x-1 transition-transform">
-              <span>Open Soundboard</span>
+              <span>Open Sound Vault</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>
 
-          {/* 3. Autopsy Rivals */}
+          {/* 4. My Memorial Garden */}
+          <Link
+            href="/my-garden"
+            className="p-5 sm:p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-purple-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
+          >
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-purple-950/60 border border-purple-500/40 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                <Heart className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors font-serif">
+                  My Memorial Garden
+                </h3>
+                <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
+                  Personal cyber-crypt. Curate your departed relics, plant tribute flowers, and export condolences.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-purple-400 group-hover:translate-x-1 transition-transform">
+              <span>View Crypt Garden</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
+          </Link>
+
+          {/* 5. Vital Signs Lab */}
+          <Link
+            href="/lookup"
+            className="p-5 sm:p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-red-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
+          >
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-red-950/60 border border-red-500/40 flex items-center justify-center text-red-400 group-hover:scale-110 transition-transform">
+                <Activity className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors font-serif">
+                  Vital Signs Diagnostic
+                </h3>
+                <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
+                  Real-time diagnostic triage. Probe DNS, SSL certs, HTTP response codes, and Wayback Machine pulses.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-red-400 group-hover:translate-x-1 transition-transform">
+              <span>Probe Any Domain</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
+          </Link>
+
+          {/* 6. Time Warp Scrubber */}
+          <Link
+            href="/time-warp"
+            className="p-5 sm:p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-blue-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
+          >
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-950/60 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                <History className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors font-serif">
+                  Web Time Warp
+                </h3>
+                <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
+                  Interactive timeline scrubber. Replay the evolution of the web from 1993 NCSA Mosaic to the AI boom.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-blue-400 group-hover:translate-x-1 transition-transform">
+              <span>Scrub Web History</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
+          </Link>
+
+          {/* 7. Autopsy Rivals */}
           <Link
             href="/compare"
-            className="p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-cyan-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            className="p-5 sm:p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-cyan-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
           >
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
@@ -455,10 +588,10 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* 4. Sunset Gazette */}
+          {/* 8. Sunset Gazette */}
           <Link
             href="/gazette"
-            className="p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
+            className="p-5 sm:p-6 rounded-2xl bg-zinc-900/90 border border-white/10 hover:border-amber-500/50 hover:bg-zinc-850/80 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/60"
           >
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-amber-950/60 border border-amber-500/40 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
@@ -478,6 +611,82 @@ export default function HomePage() {
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>
+        </div>
+      </section>
+
+      {/* SPECIAL FORENSIC DIVISION: COLD CASE INQUESTS SHOWCASE */}
+      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 font-sans space-y-6">
+        <div className="border-b border-red-500/20 pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-red-400 tracking-wider uppercase mb-1">
+              <FileSearch className="w-4 h-4" />
+              <span>Department of Archival Justice</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-serif font-black text-white tracking-tight">
+              Cold Case Inquests & Declassified Files
+            </h2>
+            <p className="text-sm text-zinc-400 mt-1 max-w-2xl">
+              Forensic murder investigations into controversial corporate assassinations, sudden deprecations, and executive sunset decisions that shocked the internet.
+            </p>
+          </div>
+          <Link
+            href="/inquests/cases"
+            className="flex items-center gap-2 text-sm font-sans font-bold text-red-400 hover:text-red-300 transition-colors shrink-0 group focus-visible:ring-2 focus-visible:ring-amber-500/60 rounded px-1"
+          >
+            <span>Enter Inquests Headquarters ({COLD_CASES.length} Cases)</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {COLD_CASES.map((coldCase) => (
+            <div
+              key={coldCase.id}
+              className="rounded-2xl bg-zinc-950/95 border-2 border-white/10 hover:border-red-500/50 p-6 sm:p-7 flex flex-col justify-between space-y-5 transition-all shadow-xl group backdrop-blur-xl relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-48 h-48 bg-red-600/5 rounded-full blur-2xl pointer-events-none" />
+              <div className="space-y-3 relative z-10">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="px-2.5 py-1 rounded bg-red-950/80 border border-red-500/40 text-red-400 font-mono text-[10px] sm:text-xs font-black uppercase tracking-wider">
+                    {coldCase.classificationStatus.replace('_', ' ')}
+                  </span>
+                  <span className="text-xs font-mono text-zinc-400 font-bold">{coldCase.victimLifespan}</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-black text-white group-hover:text-red-400 transition-colors">
+                  {coldCase.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed">
+                  {coldCase.subtitle}
+                </p>
+                <div className="pt-2 border-t border-white/10 space-y-1.5">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">Prime Suspects on Record:</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {coldCase.suspects.map((suspect, idx) => (
+                      <span key={idx} className="px-2 py-0.5 rounded-md bg-zinc-900 border border-white/10 text-zinc-300 font-mono text-[11px]">
+                        {suspect}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between relative z-10">
+                <Link
+                  href={`/grave/${coldCase.slug}`}
+                  className="text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+                >
+                  Visit Memorial &rarr;
+                </Link>
+                <Link
+                  href={`/inquests/cases/${coldCase.id}`}
+                  className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-sans text-xs font-bold flex items-center gap-1.5 shadow-md transition-all group-hover:scale-105"
+                >
+                  <span>Exhume Crime Scene</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -513,6 +722,11 @@ export default function HomePage() {
               <span>Explore At-Risk Radar ({stats.at_risk} Active)</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
+          </div>
+
+          {/* Live Sunset Deathwatch Countdown Chamber */}
+          <div className="pt-2">
+            <SunsetCountdown />
           </div>
 
           {/* At Risk Cards */}
